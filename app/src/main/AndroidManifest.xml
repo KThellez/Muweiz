@@ -12,6 +12,18 @@
         android:theme="@style/Theme.Design.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".Instrumentos"
+            android:exported="false" />
+        <activity
+            android:name=".Generos"
+            android:exported="false" />
+        <activity
+            android:name=".Ejercicios"
+            android:exported="false" />
+        <activity
+            android:name=".Teoria"
+            android:exported="false" />
+        <activity
             android:name=".Tuner"
             android:exported="false" />
         <activity

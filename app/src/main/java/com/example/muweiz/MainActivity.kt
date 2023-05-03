@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 
@@ -12,12 +13,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     //USAR los FRAMELAYOUT para que tengan listeners!
+        val logo = findViewById<FrameLayout>(R.id.frameLogo);
         val btnMetronomo = findViewById<FrameLayout>(R.id.frameMetronomo);
         val btnAfinador = findViewById<FrameLayout>(R.id.frameAfinador);
         val btnTeoria = findViewById<FrameLayout>(R.id.frameTeoria);
         val btnEjercicios = findViewById<FrameLayout>(R.id.frameEjercicios);
-        val btnGuitarra = findViewById<FrameLayout>(R.id.frameGuitar);
-        val btnPiano = findViewById<FrameLayout>(R.id.framePiano);
+        val btnInstrumentos = findViewById<FrameLayout>(R.id.frameInstrumentos);
+        val btnProximo = findViewById<FrameLayout>(R.id.frameProximo);
         val btnGeneros = findViewById<FrameLayout>(R.id.frameGenero);
 
 
@@ -81,25 +83,25 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putInt("imagen", R.drawable.guitar)
-            bundle.putString("texto", "Guitarra")
+            bundle.putInt("imagen", R.drawable.piano)
+            bundle.putString("texto", "Instrumentos")
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 
 
-            replace(R.id.frameGuitar, fragment)
+            replace(R.id.frameInstrumentos, fragment)
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putInt("imagen", R.drawable.piano)
-            bundle.putString("texto", "Piano")
+            bundle.putInt("imagen", R.drawable.config)
+            bundle.putString("texto", "Proximamente")
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 
 
-            replace(R.id.framePiano, fragment)
+            replace(R.id.frameProximo, fragment)
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }
@@ -117,6 +119,9 @@ class MainActivity : AppCompatActivity() {
         }
 
     //APLICANDO LOS LISTENERS para cada BOTON
+        logo.setOnClickListener{
+            Toast.makeText(applicationContext, "Ya estas en el HOME", Toast.LENGTH_SHORT).show()
+        }
 
         btnMetronomo.setOnClickListener{
 
@@ -130,6 +135,29 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        btnTeoria.setOnClickListener{
+
+            val intent = Intent(this, Teoria::class.java)
+            startActivity(intent)
+            finish()
+        }
+        btnEjercicios.setOnClickListener{
+
+            val intent = Intent(this, Ejercicios::class.java)
+            startActivity(intent)
+            finish()
+        }
+        btnGeneros.setOnClickListener{
+            val intent = Intent(this, Generos::class.java)
+            startActivity(intent)
+            finish()
+        }
+        btnInstrumentos.setOnClickListener{
+            val intent = Intent(this, Instrumentos::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
     }
     

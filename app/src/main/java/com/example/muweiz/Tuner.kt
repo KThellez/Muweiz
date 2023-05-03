@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
@@ -29,6 +30,9 @@ class Tuner : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tuner)
+
+        val logo = findViewById<FrameLayout>(R.id.frameLogoTuner);
+
         var medidor = findViewById<HalfGauge>(R.id.medidor_tuner);
 
         if (medidor != null) {
@@ -114,6 +118,12 @@ class Tuner : AppCompatActivity() {
             replace<logoAndTittle>(R.id.frameLogoTuner)
             setReorderingAllowed(true)
             addToBackStack("replacement")
+        }
+        //APLICANDO LOS LISTENERS para cada BOTON
+        logo.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }

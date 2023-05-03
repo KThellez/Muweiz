@@ -26,7 +26,11 @@ class Metronomo : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_metronomo)
 
+
+        val logo = findViewById<FrameLayout>(R.id.frameLogoMetronomo);
         val compas = findViewById<TextView>(R.id.txtCompas); //Compas
         val tempoNombre = findViewById<TextView>(R.id.txtTemCla); //allegro
         val imgFiguraRithm = findViewById<ImageView>(R.id.imgSubdiv); //Imagen Figura Ritmica de Subdivision
@@ -35,10 +39,6 @@ class Metronomo : AppCompatActivity() {
         val btnTapTempo = findViewById<TextView>(R.id.btnTapMetronomo); //Boton Tap para tempo
         val btnTempo = findViewById<FrameLayout>(R.id.frameTempo); //Boton que abre el frame de ajustes de metronomo (compaz, tempo, subdivision)
         val btnConfiguracion = findViewById<FrameLayout>(R.id.frameConfig); // Boton de las configuraciones de mertonomo (Sonido)
-
-
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_metronomo)
 
         //Abre el Fragment
         supportFragmentManager.commit {
@@ -85,6 +85,11 @@ class Metronomo : AppCompatActivity() {
     //LOGICA METRONOMO
 
     //LISTENERS
+        logo.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
     }
     override fun onBackPressed() {
