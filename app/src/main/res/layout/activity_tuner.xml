@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#211F20"
+    tools:context=".Tuner">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/logoTuner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.85"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginRight="52dp"
+            android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/frameLogoTuner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cuerpoTuner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginRight="52dp"
+            android:layout_marginBottom="84dp"
+            android:orientation="vertical">
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/principalTuner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/frameTuner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_rounded_corners"></FrameLayout>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/layoutBtnHerramientasTuner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:id="@+id/frameAfinacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/bg_rounded_corners">
+
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/frameConfig"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/bg_rounded_corners">
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

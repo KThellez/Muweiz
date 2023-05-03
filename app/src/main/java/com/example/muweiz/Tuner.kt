@@ -1,0 +1,126 @@
+package com.example.muweiz
+
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
+import com.ekn.gruzer.gaugelibrary.HalfGauge
+import com.ekn.gruzer.gaugelibrary.Range
+import kotlin.math.max
+import kotlin.math.min
+
+class Tuner : AppCompatActivity() {
+    private lateinit var  ran1 : com.ekn.gruzer.gaugelibrary.Range
+    private lateinit var  ran2 : com.ekn.gruzer.gaugelibrary.Range
+    private lateinit var  ran3 : com.ekn.gruzer.gaugelibrary.Range
+    private lateinit var  ran4 : com.ekn.gruzer.gaugelibrary.Range
+    private lateinit var  ran5 : com.ekn.gruzer.gaugelibrary.Range
+
+    //;
+
+    @SuppressLint("MissingInflatedId")
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_tuner)
+        var medidor = findViewById<HalfGauge>(R.id.medidor_tuner);
+
+        if (medidor != null) {
+            medidor.apply {
+
+                minValue = -50.0
+                maxValue = 50.0
+                value = 0.0
+                addRange(ran1)
+                addRange(ran2)
+                addRange(ran3)
+                addRange(ran4)
+                addRange(ran5)
+            }
+            ran1 = Range().apply {
+                from = -50.0
+                to = -20.1
+                color = Color.parseColor("#C31A1A")
+            }
+            ran2 = Range().apply {
+                from = -20.0
+                to = -10.1
+                color = Color.parseColor("#C36B1A")
+
+            }
+            ran3 = Range().apply {
+                from = -10.0
+                to = 10.0
+                color = Color.parseColor("#1AC321")
+            }
+            ran4 = Range().apply {
+                from = 10.1
+                to = 20.0
+                color = Color.parseColor("#C36B1A")
+            }
+            ran5 = Range().apply {
+                from = 20.1
+                to = 50.0
+                color = Color.parseColor("#C31A1A")
+            }
+        }
+
+        //Abre el Fragment
+        supportFragmentManager.commit {
+            replace<logoAndTittle>(R.id.frameLogoTuner)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
+
+        supportFragmentManager.commit {
+            replace<tunerPrincipal>(R.id.frameTuner)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
+
+        //Abre el fragment y envia parametros.
+
+        supportFragmentManager.commit {
+            val bundle = Bundle()
+            bundle.putInt("imagen", R.drawable.tuner)
+            bundle.putString("texto", "Afinación Estándar")
+            val fragment = btnImgTxtHorizontal()
+            fragment.arguments = bundle
+
+            replace(R.id.frameAfinacion, fragment)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
+        supportFragmentManager.commit {
+            val bundle = Bundle()
+            bundle.putInt("imagen", R.drawable.config)
+            bundle.putString("texto", "Configuración")
+            val fragment = btnImgTxtHorizontal()
+            fragment.arguments = bundle
+
+
+            replace(R.id.frameConfig, fragment)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
+
+        supportFragmentManager.commit {
+            replace<logoAndTittle>(R.id.frameLogoTuner)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
+
+    }
+    override fun onBackPressed() {
+            super.onBackPressed()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+    }
+}

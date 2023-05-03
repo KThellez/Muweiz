@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#211F20"
+    android:backgroundTint="#211F20"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/logoAppPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.85"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginRight="52dp"
+            android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/frameLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonsAppPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginRight="52dp"
+            android:layout_marginBottom="84dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layoutBtnMetro_Afinador"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/layoutBtnHorizonMe_Afi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/frameMetronomo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:elevation="8dp"
+
+                        android:background="@drawable/bg_rounded_corners">
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frameAfinador"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/bg_rounded_corners">
+                    </FrameLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutBtnTeoria_Ejercicios"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/layoutBtnHorizonTeo_Ejer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:orientation="horizontal"
+                    >
+
+                    <FrameLayout
+                        android:id="@+id/frameTeoria"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/bg_rounded_corners"
+                        ></FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frameEjercicios"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/bg_rounded_corners">
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutBtnInstrumentos_Generos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:id="@+id/frameGuitar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/bg_rounded_corners">
+
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/framePiano"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/bg_rounded_corners">
+
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/frameGenero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/bg_rounded_corners">
+
+                </FrameLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

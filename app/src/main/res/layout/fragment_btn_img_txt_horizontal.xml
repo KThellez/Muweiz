@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".btnImgTxtHorizontal">
+
+    <LinearLayout
+        android:id="@+id/layoutPrincipalBtnHotizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/layoutIconoBtnHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.68"
+            android:gravity="center|right"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgBtnHorizontal"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@drawable/genero" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutTextoBtnHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.32"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtBtnHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Genero"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="32dp"
+                android:gravity="start"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
