@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         val btnTeoria = findViewById<FrameLayout>(R.id.frameTeoria);
         val btnEjercicios = findViewById<FrameLayout>(R.id.frameEjercicios);
         val btnInstrumentos = findViewById<FrameLayout>(R.id.frameInstrumentos);
-        val btnProximo = findViewById<FrameLayout>(R.id.frameProximo);
+        val btnBuscarCancion = findViewById<FrameLayout>(R.id.frameProximo);
         val btnGeneros = findViewById<FrameLayout>(R.id.frameGenero);
 
 
@@ -95,8 +95,8 @@ class MainActivity : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putInt("imagen", R.drawable.config)
-            bundle.putString("texto", "Proximamente")
+            bundle.putInt("imagen", R.drawable.searchsong)
+            bundle.putString("texto", "Buscar Cancion")
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 
@@ -154,6 +154,12 @@ class MainActivity : AppCompatActivity() {
         }
         btnInstrumentos.setOnClickListener{
             val intent = Intent(this, Instrumentos::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnBuscarCancion.setOnClickListener{
+            val intent = Intent(this, SpotifyRequest::class.java)
             startActivity(intent)
             finish()
         }
