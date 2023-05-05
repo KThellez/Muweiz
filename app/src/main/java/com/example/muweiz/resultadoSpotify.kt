@@ -5,27 +5,37 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_IMAGEN = "imagen"
+private const val ARG_ARTISTA = "artista"
+private const val ARG_CANCION = "cancion"
+private const val ARG_KEY= "key"
+private const val ARG_BPM= "bpm"
+private const val ARG_POPULARIDAD= "popularidad"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [resultadoSpotify.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class resultadoSpotify : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var imagen: Int? = null
+    private var artista: String? = null
+    private var cancion: String? = null
+    private var key: String? = null
+    private var bpm: String? = null
+    private var popularidad: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            imagen = it.getInt(ARG_IMAGEN)
+            artista = it.getString(ARG_ARTISTA)
+            cancion = it.getString(ARG_CANCION)
+            key = it.getString(ARG_KEY)
+            bpm = it.getString(ARG_BPM)
+            popularidad = it.getString(ARG_POPULARIDAD)
         }
     }
 
@@ -33,8 +43,25 @@ class resultadoSpotify : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_resultado_spotify, container, false)
+        val bundle = arguments
+        val imagen = bundle?.getInt("imagen") ?: 0
+        val artista = bundle?.getString("artista") ?: ""
+        val cancion = bundle?.getString("cancion") ?: ""
+        val key = bundle?.getString("key") ?: ""
+        val bpm = bundle?.getString("bpm") ?: ""
+        val popularidad = bundle?.getString("popularidad") ?: ""
+
+        // Infla el layout del fragment
+        val rootView = inflater.inflate(R.layout.fragment_resultado_spotify, container, false)
+
+        // Configura la imagen y el texto en tus vistas
+        rootView.findViewById<ImageView>(R.id.imgCancion).setImageResource(imagen)
+        rootView.findViewById<TextView>(R.id.txtNombreArtista).text = artista
+        rootView.findViewById<TextView>(R.id.txtNombreCancion).text = cancion
+        rootView.findViewById<TextView>(R.id.txtKeySong).text = key
+        rootView.findViewById<TextView>(R.id.txtBpmSong).text = bpm
+        rootView.findViewById<TextView>(R.id.txtPopSong).text = popularidad
+        return rootView
     }
 
     companion object {
@@ -48,11 +75,16 @@ class resultadoSpotify : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(imagen: Int, artista: String, cancion: String,key: String ,
+                        bpm: String, popularidad: String) =
             resultadoSpotify().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putInt(ARG_IMAGEN, imagen)
+                    putString(ARG_ARTISTA, artista)
+                    putString(ARG_CANCION, cancion)
+                    putString(ARG_KEY, key)
+                    putString(ARG_BPM, bpm)
+                    putString(ARG_POPULARIDAD, popularidad)
                 }
             }
     }

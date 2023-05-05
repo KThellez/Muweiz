@@ -4,27 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#211F20"
     tools:context=".SpotifyRequest">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <SearchView
-            android:id="@+id/buscador"
+        <LinearLayout
+            android:id="@+id/logoAppPrincipal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:iconifiedByDefault="false"
-            android:queryHint="Busca la cancion o artista"
-            android:layout_margin="32dp"
-            android:background="@drawable/bg_rounded_corners_btn_metronomo">
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginRight="52dp"
+            android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/frameLogoSpot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></FrameLayout>
 
-        </SearchView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:orientation="vertical">
+
+            <SearchView
+                android:id="@+id/buscador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="false"
+                android:queryHint="Busca la cancion o artista"
+                android:layout_margin="32dp"
+                android:background="@drawable/bg_rounded_corners_btn_metronomo">
+
+            </SearchView>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:layout_weight="0.3"
             android:layout_margin="32dp">
 
             <FrameLayout
