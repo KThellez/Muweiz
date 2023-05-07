@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Muweiz</string>
+    <string name="metronomo">Metronome</string>
+    <string name="afinador">Tuner</string>
+    <string name="teoria">Theory</string>
+    <string name="ejercicios">Practice</string>
+    <string name="instrumentos">Instruments</string>
+    <string name="generos">Musical Genre</string>
+    <string name="buscar_cancion">Search Song</string>
+    <string name="tempo">Tempo</string>
+    <string name="subdivision">Subdivision</string>
+    <string name="iniciar">Start</string>
+    <string name="configuracion">Settings</string>
+    <string name="ts">T.S</string>
+    <string name="afinacion_tipo">Tuning types</string>
+    <string name="intervalos">Intervals</string>
+    <string name="armonia_basica">Basic Harmony</string>
+    <string name="escalas_modos">Scales and Modes</string>
+    <string name="cad_IIVI">II-V-I Cadence</string>
+    <string name="analisis_armonico">Harmonic Analysis</string>
+    <string name="voicings">II-V-I Voicings</string>
+    <string name="auditivo">Hearing </string>
+    <string name="ritmo">Rhythm</string>
+    <string name="lectura">Reading</string>
+    <string name="bajo">Bass</string>
+    <string name="guitarra">Guitar</string>
+    <string name="piano">Piano</string>
+    <string name="clasico">Clasic</string>
+    <string name="gospel">Gospel</string>
+    <string name="buscador_cancion">Search for the song or artist</string>
+    <string name="confirmar_salida">Confirm departure</string>
+    <string name="pregunta_confirmar_salida">Are you sure you want to go out?</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
+    <string name="estas_home">You are already in Home</string>
+</resources>

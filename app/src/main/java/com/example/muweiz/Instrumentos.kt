@@ -22,7 +22,7 @@ class Instrumentos : AppCompatActivity() {
         //Abre el fragment y envia parametros.
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Instrumentos")
+            bundle.putString("texto", getString(R.string.instrumentos))
             val fragment = titulo()
             fragment.arguments = bundle
 
@@ -33,7 +33,7 @@ class Instrumentos : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.guitar)
-            bundle.putString("texto", "Bajo")
+            bundle.putString("texto", getString(R.string.bajo))
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 
@@ -44,7 +44,7 @@ class Instrumentos : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.guitar)
-            bundle.putString("texto", "Guitarra")
+            bundle.putString("texto", getString(R.string.guitarra))
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 
@@ -55,7 +55,7 @@ class Instrumentos : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.piano)
-            bundle.putString("texto", "Piano")
+            bundle.putString("texto", getString(R.string.piano))
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 

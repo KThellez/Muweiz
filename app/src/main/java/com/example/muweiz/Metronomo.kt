@@ -55,7 +55,7 @@ class Metronomo : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.genero)
-            bundle.putString("texto", "Tempo")
+            bundle.putString("texto", getString(R.string.tempo))
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 
@@ -67,7 +67,7 @@ class Metronomo : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.config)
-            bundle.putString("texto", "Configuración")
+            bundle.putString("texto", getString(R.string.configuracion))
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 

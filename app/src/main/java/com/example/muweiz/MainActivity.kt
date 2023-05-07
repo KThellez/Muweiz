@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import com.google.firebase.analytics.FirebaseAnalytics
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         val btnBuscarCancion = findViewById<FrameLayout>(R.id.frameProximo);
         val btnGeneros = findViewById<FrameLayout>(R.id.frameGenero);
 
+    //Analitycs Event to google
+        val analitycs = FirebaseAnalytics.getInstance(this)
+        val bundelAnalitics = Bundle()
+        bundelAnalitics.putString("mesage", "Integracion de Firebase Completa")
+        analitycs.logEvent("InitScreen", bundelAnalitics)
 
     //Añadir por defecto el fragment
         supportFragmentManager.commit {
@@ -34,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.metronomo)
-            bundle.putString("texto", "Metrónomo")
+            bundle.putString("texto", getString(R.string.metronomo))
             val fragment = btnPrincipalesMenu()
             fragment.arguments = bundle
 
@@ -46,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.tuner)
-            bundle.putString("texto", "Afinador")
+            bundle.putString("texto", getString(R.string.afinador))
             val fragment = btnPrincipalesMenu()
             fragment.arguments = bundle
 
@@ -58,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.teoria)
-            bundle.putString("texto", "Teoría")
+            bundle.putString("texto", getString(R.string.teoria))
             val fragment = btnPrincipalesMenu()
             fragment.arguments = bundle
 
@@ -70,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.cronometro)
-            bundle.putString("texto", "Ejercicios")
+            bundle.putString("texto", getString(R.string.ejercicios))
             val fragment = btnPrincipalesMenu()
             fragment.arguments = bundle
 
@@ -85,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.piano)
-            bundle.putString("texto", "Instrumentos")
+            bundle.putString("texto", getString(R.string.instrumentos))
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 
@@ -97,7 +103,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.searchsong)
-            bundle.putString("texto", "Buscar Cancion")
+            bundle.putString("texto", getString(R.string.buscar_cancion))
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 
@@ -121,7 +127,7 @@ class MainActivity : AppCompatActivity() {
 
     //APLICANDO LOS LISTENERS para cada BOTON
         logo.setOnClickListener{
-            Toast.makeText(applicationContext, "Ya estas en el HOME", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, getString(R.string.estas_home), Toast.LENGTH_SHORT).show()
         }
 
         btnMetronomo.setOnClickListener{
@@ -179,12 +185,12 @@ class MainActivity : AppCompatActivity() {
         builder.show()*/
 
         AlertDialog.Builder(this)
-            .setTitle("Confirmar salida")
-            .setMessage("¿Estás seguro que quieres salir?")
-            .setPositiveButton("Sí") { _, _ ->
+            .setTitle(getString(R.string.confirmar_salida))
+            .setMessage(getString(R.string.pregunta_confirmar_salida))
+            .setPositiveButton(getString(R.string.si)) { _, _ ->
                 finishAffinity()
             }
-            .setNegativeButton("No", null)
+            .setNegativeButton(getString(R.string.no), null)
             .show()
     }
 

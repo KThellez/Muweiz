@@ -24,7 +24,7 @@ class Ejercicios : AppCompatActivity() {
         //Abre el fragment y envia parametros.
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Ejercicios")
+            bundle.putString("texto", getString(R.string.ejercicios))
             val fragment = titulo()
             fragment.arguments = bundle
 
@@ -35,7 +35,7 @@ class Ejercicios : AppCompatActivity() {
 
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Auditivo")
+            bundle.putString("texto", getString(R.string.auditivo))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 
@@ -45,7 +45,7 @@ class Ejercicios : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Ritmo")
+            bundle.putString("texto", getString(R.string.ritmo))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 
@@ -55,7 +55,7 @@ class Ejercicios : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Lectura")
+            bundle.putString("texto", getString(R.string.lectura))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 

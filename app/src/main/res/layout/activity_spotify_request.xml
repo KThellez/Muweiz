@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:iconifiedByDefault="false"
-                android:queryHint="Busca la cancion o artista"
+                android:queryHint= "@string/buscador_cancion"
                 android:layout_margin="32dp"
                 android:background="@drawable/bg_rounded_corners_btn_metronomo">
 

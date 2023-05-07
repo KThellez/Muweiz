@@ -1,5 +1,40 @@
 <resources>
-    <string name="app_name">Muweiz</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name" translatable="false">Muweiz</string>
+    <string name="metronomo">Metrónomo</string>
+    <string name="afinador">Afinador</string>
+    <string name="teoria">Teoría</string>
+    <string name="ejercicios">Ejercicios</string>
+    <string name="instrumentos">Instrumentos</string>
+    <string name="generos">Géneros</string>
+    <string name="buscar_cancion">Buscar Canción</string>
+    <string name="tempo">Tempo</string>
+    <string name="subdivision">Subdivisión</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="configuracion">Configuración</string>
+    <string name="ts">T.S</string>
+    <string name="afinacion_tipo">Afinación Tipos</string>
+    <string name="intervalos">Intervalos</string>
+    <string name="armonia_basica">Armonía Básica</string>
+    <string name="escalas_modos">Escalas y Modos</string>
+    <string name="cad_IIVI">Cadencia II-V-I</string>
+    <string name="analisis_armonico">Análisis Armónico</string>
+    <string name="voicings">II-V-I Voicings</string>
+    <string name="auditivo">Auditivo</string>
+    <string name="ritmo">Ritmo</string>
+    <string name="lectura">Lectura</string>
+    <string name="bajo">Bajo</string>
+    <string name="guitarra">Guitarra</string>
+    <string name="piano">Piano</string>
+    <string name="clasico">Clásico</string>
+    <string name="gospel">Góspel</string>
+    <string name="buscador_cancion">Busca la canción o artista</string>
+    <string name="confirmar_salida">Confirmar salida</string>
+    <string name="pregunta_confirmar_salida">¿Estás seguro que quieres salir?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="estas_home">Ya estás en Home</string>
+
+
+
+
 </resources>

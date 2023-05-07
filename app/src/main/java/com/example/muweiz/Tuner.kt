@@ -93,7 +93,7 @@ class Tuner : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.tuner)
-            bundle.putString("texto", "Afinación Estándar")
+            bundle.putString("texto", getString(R.string.afinacion_tipo))
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 
@@ -104,7 +104,7 @@ class Tuner : AppCompatActivity() {
         supportFragmentManager.commit {
             val bundle = Bundle()
             bundle.putInt("imagen", R.drawable.config)
-            bundle.putString("texto", "Configuración")
+            bundle.putString("texto", getString(R.string.configuracion))
             val fragment = btnImgTxtHorizontal()
             fragment.arguments = bundle
 

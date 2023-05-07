@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "540395468708",
+    "project_id": "muweiz-533c5",
+    "storage_bucket": "muweiz-533c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540395468708:android:f83495aa9fb584edc7f331",
+        "android_client_info": {
+          "package_name": "com.example.muweiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540395468708-9n42k65s173epp1cqc31v68kk5i0meu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6rj-oALZfxOQO-NLW6NdkIEbinjycwkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540395468708-9n42k65s173epp1cqc31v68kk5i0meu6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

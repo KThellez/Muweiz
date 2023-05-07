@@ -1,6 +1,7 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'com.android.application' apply true
+    id 'org.jetbrains.kotlin.android' apply true
+    id 'com.google.gms.google-services' apply true
 }
 
 android {
@@ -37,6 +38,10 @@ dependencies {
     implementation 'com.spotify.android:auth:1.2.5' // Maven dependency
     implementation 'com.spotify.android:appremote:0.7.2'*/
 
+    //servicios de Google y FireBase
+    implementation 'com.google.gms:google-services:4.3.15'
+    implementation platform('com.google.firebase:firebase-bom:32.0.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     implementation 'androidx.appcompat:appcompat-resources:1.6.1'
     implementation 'androidx.browser:browser:1.5.0'

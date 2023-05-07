@@ -23,7 +23,7 @@ class Generos : AppCompatActivity() {
         //Abre el fragment y envia parametros.
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Generos")
+            bundle.putString("texto", getString(R.string.generos))
             val fragment = titulo()
             fragment.arguments = bundle
 
@@ -33,7 +33,7 @@ class Generos : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Clasico")
+            bundle.putString("texto", getString(R.string.clasico))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 
@@ -53,7 +53,7 @@ class Generos : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Góspel")
+            bundle.putString("texto", getString(R.string.gospel))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 

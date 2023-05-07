@@ -24,7 +24,7 @@ class Teoria : AppCompatActivity() {
         //Abre el fragment y envia parametros.
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Teoría")
+            bundle.putString("texto", getString(R.string.teoria))
             val fragment = titulo()
             fragment.arguments = bundle
 
@@ -34,7 +34,7 @@ class Teoria : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Intervalos")
+            bundle.putString("texto", getString(R.string.intervalos))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 
@@ -44,7 +44,7 @@ class Teoria : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Armonía Básica")
+            bundle.putString("texto", getString(R.string.armonia_basica))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 
@@ -54,7 +54,7 @@ class Teoria : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Escalas y Modos")
+            bundle.putString("texto", getString(R.string.escalas_modos))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 
@@ -64,7 +64,7 @@ class Teoria : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Cadencia II-V-I")
+            bundle.putString("texto", getString(R.string.cad_IIVI))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 
@@ -74,7 +74,7 @@ class Teoria : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "Análisis Armónico")
+            bundle.putString("texto", getString(R.string.analisis_armonico))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 
@@ -84,7 +84,7 @@ class Teoria : AppCompatActivity() {
         }
         supportFragmentManager.commit {
             val bundle = Bundle()
-            bundle.putString("texto", "II-V-I Voicings")
+            bundle.putString("texto", getString(R.string.voicings))
             val fragment = btnTextOnly()
             fragment.arguments = bundle
 
