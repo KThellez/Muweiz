@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 
@@ -168,11 +169,23 @@ class MainActivity : AppCompatActivity() {
     }
     
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 0) {
-            supportFragmentManager.popBackStack()
-        } else {
-            super.onBackPressed()
+        /*val builder = AlertDialog.Builder(this, R.style.MiAlertDialogStyle)
+        builder.setTitle("Confirmar salida")
+        builder.setMessage("¿Estás seguro que quieres salir?")
+        builder.setPositiveButton("Si") { dialog, which ->
+            finishAffinity()
         }
+        builder.setNegativeButton("No", null)
+        builder.show()*/
+
+        AlertDialog.Builder(this)
+            .setTitle("Confirmar salida")
+            .setMessage("¿Estás seguro que quieres salir?")
+            .setPositiveButton("Sí") { _, _ ->
+                finishAffinity()
+            }
+            .setNegativeButton("No", null)
+            .show()
     }
 
 }
