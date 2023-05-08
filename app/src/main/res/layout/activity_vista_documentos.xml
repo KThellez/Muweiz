@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#211F20"
-    tools:context=".Teoria">
+    android:theme="@style/Theme.Design.NoActionBar"
+    tools:context=".vista_documentos">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,10 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.15"
-            android:layout_marginTop="32dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginRight="52dp"
-            android:layout_marginBottom="84dp"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
 
@@ -53,64 +52,31 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <FrameLayout
-                        android:id="@+id/frameTituloTeoria"
+                        android:id="@+id/frameTextoPrincipal"
                         android:layout_width="match_parent"
-                        android:layout_height="84dp"
+                        android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="0.5">
                     </FrameLayout>
                     <FrameLayout
-                        android:id="@+id/frameIntervalos"
+                        android:id="@+id/frameImgPrincipal"
                         android:layout_width="match_parent"
-                        android:layout_height="84dp"
+                        android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/bg_rounded_corners">
 
                     </FrameLayout>
                     <FrameLayout
-                        android:id="@+id/frameArmoniaI"
+                        android:id="@+id/frameTextoSecundario"
                         android:layout_width="match_parent"
-                        android:layout_height="84dp"
+                        android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/bg_rounded_corners">
 
                     </FrameLayout>
-                    <FrameLayout
-                        android:id="@+id/frameEscalaModo"
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/bg_rounded_corners">
-                    </FrameLayout>
-                    <FrameLayout
-                        android:id="@+id/frameCadencia"
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/bg_rounded_corners">
 
-                    </FrameLayout>
-                    <FrameLayout
-                        android:id="@+id/frameAnalisisArmonico"
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/bg_rounded_corners">
-
-                    </FrameLayout>
-                    <FrameLayout
-                        android:id="@+id/frameVoicings251"
-                        android:layout_width="match_parent"
-                        android:layout_height="84dp"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/bg_rounded_corners">
-                    </FrameLayout>
 
 
                 </LinearLayout>
@@ -120,5 +86,4 @@
 
         </LinearLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
     //USAR los FRAMELAYOUT para que tengan listeners!
         val logo = findViewById<FrameLayout>(R.id.frameLogo);
         val btnMetronomo = findViewById<FrameLayout>(R.id.frameMetronomo);

@@ -32,9 +32,29 @@
     <string name="pregunta_confirmar_salida">¿Estás seguro que quieres salir?</string>
     <string name="si">Si</string>
     <string name="no">No</string>
-    <string name="estas_home">Ya estás en Home</string>
+    <string name="estas_home">Ya
+        estás
+        en
+        Home</string>
+    <string name="def_intervalos">
+        Para entender cualquier melodía o armonía musical, es esencial tener una sólida comprensión de los intervalos. En teoría musical, un intervalo es la distancia entre dos tonos, que puede medirse en semitonos o tonos.\n\n
+        En la música occidental, el intervalo más pequeño es el semitono, que es la distancia entre dos teclas adyacentes en un piano. El siguiente intervalo más pequeño es el paso entero o tono, que es la distancia entre las notas que están a dos teclas de distancia en el piano.\n\n
+        Las mediciones de intervalos constan de dos partes: cantidad y calidad. La cantidad de un intervalo viene determinada por su valor numérico, que se basa en el alfabeto musical (Do, Re, Mi, Fa, Sol, La, Si). Por ejemplo, el intervalo formado por las notas Do y Sol siempre será algún tipo de quinta, independientemente de la cualidad de Do o Sol (si son bemoles o sostenidos).\n\n
+        La calidad de un intervalo viene determinada por el número de semitonos que hay entre las dos notas. Existen cinco calidades básicas de intervalos: perfectos, mayores, menores, aumentados y disminuidos. Los intervalos perfectos (unísono, cuarta, quinta y octava) se consideran los más estables y consonantes, mientras que los intervalos mayores y menores (tercera, sexta y séptima) crean más tensión y disonancia.\n\n
+        En resumen, los intervalos son un concepto fundamental en la teoría musical y son esenciales para comprender la estructura y las relaciones entre las notas y los acordes en la música.
 
+    </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_vista_documentos">vista_documentos</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
 </resources>

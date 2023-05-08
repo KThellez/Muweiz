@@ -30,6 +30,6 @@
             android:text="Metrónomo"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
     </LinearLayout>
 </FrameLayout>

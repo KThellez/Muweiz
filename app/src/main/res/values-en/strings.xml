@@ -34,4 +34,12 @@
     <string name="si">Yes</string>
     <string name="no">No</string>
     <string name="estas_home">You are already in Home</string>
+    <string name="def_intervalos">
+        To understand any melody or harmony in music, it is essential to have a solid understanding of intervals. In music theory, an interval is the distance between two pitches, which can be measured in half-steps or whole-steps.\n\n
+        In Western music, the smallest interval is the half-step or semitone, which is the distance between any two adjacent keys on a piano. The next smallest interval is the whole-step or tone, which is the distance between notes that are two keys apart on the piano.\n\n
+        Interval measurements consist of two parts: quantity and quality. The quantity of an interval is determined by its numeric value, which is based on the musical alphabet (C, D, E, F, G, A, B). For example, the interval formed by the notes C and G will always be some type of fifth, regardless of the quality of the C or G (whether they are flat or sharp).\n\n
+        The quality of an interval is determined by the number of half-steps between the two notes. There are five basic qualities of intervals: perfect, major, minor, augmented, and diminished. The perfect intervals (unison, fourth, fifth, and octave) are considered the most stable and consonant, while the major and minor intervals (third, sixth, and seventh) create more tension and dissonance.\n\n
+        In summary, intervals are a fundamental concept in music theory and are essential for understanding the structure and relationships between notes and chords in music.
+    </string>
+
 </resources>
