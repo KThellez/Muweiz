@@ -16,6 +16,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        buildConfigField "String", "API_C", "\"${properties.getProperty("cli")}\""
+        buildConfigField "String", "API_CS", "\"${properties.getProperty("cliS")}\""
+
     }
 
     buildTypes {
@@ -41,13 +47,32 @@ dependencies {
     implementation 'com.spotify.android:auth:1.2.5' // Maven dependency
     implementation 'com.spotify.android:appremote:0.7.2'*/
 
+    implementation project(':spotify-app-remote')
+    implementation "com.google.code.gson:gson:2.6.1"
+
+
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+
     //servicios de Google y FireBase
     implementation 'com.google.gms:google-services:4.3.15'
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 
+
+
+    implementation 'androidx.activity:activity-ktx:1.7.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation 'androidx.appcompat:appcompat-resources:1.6.1'
     implementation 'androidx.browser:browser:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'
+    implementation 'com.google.dagger:hilt-android:2.42'
+ // kapt 'com.google.dagger:hilt-android-compiler:2.42'
     implementation 'com.github.Gruzer:simple-gauge-android:0.3.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.fragment:fragment-ktx:1.5.7'
@@ -57,6 +82,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.airbnb.android:lottie:5.0.3'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

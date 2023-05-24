@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#211F20"
     android:theme="@style/Theme.Design.NoActionBar"
-    tools:context=".vista_documentos">
+    tools:context=".ui.viewModel.vista_documentos">
 
 
     <LinearLayout

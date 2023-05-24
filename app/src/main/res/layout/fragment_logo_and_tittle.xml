@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#211F20"
-    tools:context=".logoAndTittle">
+    tools:context=".ui.viewModel.logoAndTittle">
 
     <LinearLayout
         android:id="@+id/layoutLogo"
