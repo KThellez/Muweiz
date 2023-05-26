@@ -45,6 +45,4 @@ class ServicioAutentificacion @Inject constructor(private val firebase: Firebase
             LoginResult.Success(result.user?.isEmailVerified ?: false)
         }
     }
-
-
 }

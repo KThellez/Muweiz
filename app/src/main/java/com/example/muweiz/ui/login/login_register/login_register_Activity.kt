@@ -8,7 +8,9 @@ import com.example.muweiz.databinding.ActivityLoginRegisterBinding
 import com.example.muweiz.ui.login.login.Login
 import com.example.muweiz.ui.login.signin.SignIn
 import com.example.muweiz.ui.viewModel.login.login_register_viewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class login_register_Activity : AppCompatActivity() {
     private lateinit var  binding: ActivityLoginRegisterBinding
     private val login_signin: login_register_viewModel by viewModels()

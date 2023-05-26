@@ -11,7 +11,6 @@ fun EditText.onTextChanged(listener: (String) -> Unit){
         override fun afterTextChanged(s: Editable?){
             listener(s.toString())
         }
-
     })
 }
 

@@ -21,8 +21,11 @@ import com.example.muweiz.ui.login.login.Login
 import com.example.muweiz.ui.view.Verification
 import com.example.muweiz.ui.viewModel.signin.SignInViewModel
 import com.example.muweiz.ui.viewModel.signin.SignInViewState
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+
+@AndroidEntryPoint
 class   SignIn : AppCompatActivity() {
     companion object {
         fun create(context: Context): Intent =

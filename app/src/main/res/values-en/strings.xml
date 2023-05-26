@@ -84,5 +84,8 @@
     <string name="dialog_success_positive">¡Thanks!</string>
 
     <string name="first_fragment_label">first Fragment</string>
+    <string name="app_auth_redirect_scheme" >http</string>
+
+
 
 </resources>

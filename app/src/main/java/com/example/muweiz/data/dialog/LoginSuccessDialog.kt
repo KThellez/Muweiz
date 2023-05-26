@@ -32,8 +32,9 @@ class LoginSuccessDialog : DialogFragment() {
         val binding = DialogLoginSuccessBinding.inflate(requireActivity().layoutInflater)
         binding.btnPositive.setOnClickListener {
             binding.btnPositive.setOnClickListener {
-                val intent = Intent(requireContext(), ActivityMainBinding::class.java)
-                startActivity(intent)
+                dismiss()
+                //val intent = Intent(requireContext(), ActivityMainBinding::class.java)
+                //startActivity(intent)
             }
         }
 
