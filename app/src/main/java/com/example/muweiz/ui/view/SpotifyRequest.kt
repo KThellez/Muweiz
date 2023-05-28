@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.android.volley.toolbox.JsonObjectRequest
@@ -22,9 +23,12 @@ import com.spotify.protocol.types.Track
 import okhttp3.*
 import com.android.volley.Request
 import com.android.volley.Response
+import com.example.muweiz.data.ServidorLocal.ServidorLocal
+import com.example.muweiz.data.extention.toast
 import com.example.muweiz.data.network.BusquedaSpotify
 import com.example.muweiz.data.network.SongData
 import com.example.muweiz.data.network.SongDataCallback
+import com.example.muweiz.databinding.ActivitySpotifyRequestBinding
 import net.openid.appauth.*
 import java.io.IOException
 
@@ -32,8 +36,7 @@ class SpotifyRequest : AppCompatActivity() {
 
     private val CLIENT_ID = BuildConfig.API_C
     private val CLIENT_ID_S = BuildConfig.API_CS
-    private val requestCode = 1337
-    private val redirectUri = "http://192.168.0.12:8888/callback"
+    private val redirectUri = "http://192.168.0.9:8080/callback"
     private val scope = "user-read-private user-library-read user-read-email user-read-private"
     private val authorizationEndpoint = "https://accounts.spotify.com/authorize"
     private lateinit var authService: AuthorizationService
@@ -44,7 +47,8 @@ class SpotifyRequest : AppCompatActivity() {
     private lateinit var T1: String
     private lateinit var TR: String
     private lateinit var spotifyAppRemote: SpotifyAppRemote
-
+    private lateinit var binding: ActivitySpotifyRequestBinding
+    private lateinit var server: ServidorLocal
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +56,11 @@ class SpotifyRequest : AppCompatActivity() {
 
         btnBuscar = findViewById(R.id.buscador)
         songData= SongData(R.drawable.piano, "SRV", "Pride and Joy", "Eb Major", "130", "77")
+        server = ServidorLocal("192.168.0.9", 8080)
+        server.startServer()
 
 
-
+        // Inicializando el control remoto de Spotify
         SpotifyAppRemote.connect(
             applicationContext,
             ConnectionParams.Builder(CLIENT_ID)
@@ -139,8 +145,15 @@ class SpotifyRequest : AppCompatActivity() {
             val ex = AuthorizationException.fromIntent(data)
 
             if (resp != null) {
+                Log.e("SpotifyAuthorization", "Success authorization Spotify")
                 // Autorización exitosa, ahora se puede intercambiar el authorization code por un token de acceso
                 exchangeAuthorizationCodeForAccessToken(resp.authorizationCode)
+                toast("Success authorization Spotify", Toast.LENGTH_SHORT)
+
+                // Redirigir de vuelta a la actividad SpotifyRequest
+                val intent = Intent(this, SpotifyRequest::class.java)
+                startActivity(intent)
+
             } else if (ex != null) {
                 // Ocurrió un error durante la autorización
                 Log.e("SpotifyAuthorization", "Error during authorization: $ex")
@@ -169,8 +182,6 @@ class SpotifyRequest : AppCompatActivity() {
                 if (refreshToken != null) {
                     TR = refreshToken
                 }
-                // Aquí tienes el token de acceso y el token de actualización para realizar solicitudes a la API de Spotify
-                // Puedes guardar los tokens y continuar con tu lógica de la aplicación
                 Log.d("SpotifyAuthorization", "Access Token: $accessToken")
                 Log.d("SpotifyAuthorization", "Refresh Token: $refreshToken")
             } else {
@@ -181,9 +192,14 @@ class SpotifyRequest : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        //onStop()
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        toast("Server Finished", Toast.LENGTH_SHORT)
+        server.stopServer()
     }
     fun funcionExterna(){
 
