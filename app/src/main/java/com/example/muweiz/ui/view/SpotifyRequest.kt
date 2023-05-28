@@ -1,6 +1,8 @@
 package com.example.muweiz.ui.view
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +15,6 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.muweiz.BuildConfig
 import com.example.muweiz.R
-import com.example.muweiz.data.network.SpotifyApi
 import com.example.muweiz.ui.viewModel.logoAndTittle
 import com.example.muweiz.ui.viewModel.resultadoSpotify
 import com.spotify.android.appremote.api.ConnectionParams
@@ -25,42 +26,114 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.example.muweiz.data.ServidorLocal.ServidorLocal
 import com.example.muweiz.data.extention.toast
-import com.example.muweiz.data.network.BusquedaSpotify
-import com.example.muweiz.data.network.SongData
-import com.example.muweiz.data.network.SongDataCallback
+import com.example.muweiz.data.network.*
 import com.example.muweiz.databinding.ActivitySpotifyRequestBinding
+import com.spotify.android.appremote.api.error.SpotifyRemoteServiceException
 import net.openid.appauth.*
 import java.io.IOException
+import kotlin.coroutines.cancellation.CancellationException
 
-class SpotifyRequest : AppCompatActivity() {
+class SpotifyRequest : AppCompatActivity(), AuthResultListener {
 
     private val CLIENT_ID = BuildConfig.API_C
-    private val CLIENT_ID_S = BuildConfig.API_CS
-    private val redirectUri = "http://192.168.0.9:8080/callback"
-    private val scope = "user-read-private user-library-read user-read-email user-read-private"
-    private val authorizationEndpoint = "https://accounts.spotify.com/authorize"
-    private lateinit var authService: AuthorizationService
-    private val tokenEndpoint = "https://accounts.spotify.com/api/token"
+    private val redirectUri = BuildConfig.URI
     private lateinit var btnBuscar: SearchView
     private lateinit var songData: SongData
     private lateinit var buscarSong: BusquedaSpotify
     private lateinit var T1: String
-    private lateinit var TR: String
     private lateinit var spotifyAppRemote: SpotifyAppRemote
     private lateinit var binding: ActivitySpotifyRequestBinding
     private lateinit var server: ServidorLocal
+    private lateinit var spotifyAuthenticator: SpotifyAuthenticator
+    private lateinit var token: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_spotify_request)
+        binding = ActivitySpotifyRequestBinding.inflate(layoutInflater)
 
-        btnBuscar = findViewById(R.id.buscador)
-        songData= SongData(R.drawable.piano, "SRV", "Pride and Joy", "Eb Major", "130", "77")
-        server = ServidorLocal("192.168.0.9", 8080)
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+
+        btnBuscar = binding.buscador
+        songData = SongData(R.drawable.piano, "SRV", "Pride and Joy", "Eb Major", "130", "77")
+        server = ServidorLocal("192.168.0.9", 8080, this)
         server.startServer()
 
+        spotifyAuthenticator = SpotifyAuthenticator(this)
 
-        // Inicializando el control remoto de Spotify
+
+        spotifyAuthenticator.authenticate { isAuthenticated ->
+            spotifyAuthenticator.setAuthResultListener(this)
+            if (isAuthenticated) {
+                val token = traerToken()
+                T1 = token
+                btnBuscar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String): Boolean {
+                        performSearch(query)
+                        return true
+                    }
+
+                    override fun onQueryTextChange(newText: String): Boolean {
+                        println(newText)
+                        return false
+                    }
+                })
+
+                funcionExterna()
+
+            } else {
+                // Autenticación fallida
+            }
+        }
+
+        supportFragmentManager.commit {
+            replace<logoAndTittle>(R.id.frameLogoSpot)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
+    }
+
+
+    override fun onAuthResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        spotifyAuthenticator.handleAuthResponse(requestCode, resultCode, data)
+    }
+
+    private fun performSearch(query: String) {
+        println("Texto buscado: $query")
+        buscarSong.searchSong(T1, object : SongDataCallback {
+            override fun onSongDataReceived(cancion: SongData) {
+                songData.imagen = cancion.imagen
+                songData.artista = cancion.artista
+                songData.cancion = cancion.cancion
+                songData.key = cancion.key
+                songData.bpm = cancion.bpm
+                songData.popularidad = cancion.popularidad
+            }
+
+            override fun onError(message: String) {
+                println("$message ERROR en SPOTY RQUEST")
+            }
+        }, query)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d("PAPAnata", "ENTRO AL ACTIVITY RESULT: $requestCode , $resultCode, $data")
+        spotifyAuthenticator.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onBackPressed() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(this, "Server Finished", Toast.LENGTH_SHORT).show()
+        server.stopServer()
+    }
+
+    private fun funcionExterna() {
         SpotifyAppRemote.connect(
             applicationContext,
             ConnectionParams.Builder(CLIENT_ID)
@@ -70,169 +143,28 @@ class SpotifyRequest : AppCompatActivity() {
             object : Connector.ConnectionListener {
                 override fun onConnected(spotifyAppRemote: SpotifyAppRemote) {
                     this@SpotifyRequest.spotifyAppRemote = spotifyAppRemote
-
+                    Log.d("MainActivity", "Connected! Yay!")
+                    // Ahora puedes interactuar con App Remote
+                    connected()
                 }
-                override fun onFailure(t: Throwable) {
-                    println(t)
+
+                override fun onFailure(throwable: Throwable) {
+                    if (throwable is SpotifyRemoteServiceException) {
+                        // Service died. Act accordingly.
+                    } else if (throwable is CancellationException) {
+                        // Connector/connection canceled.
+                    }
                 }
             }
         )
-
-        val config = AuthorizationServiceConfiguration(
-            Uri.parse(authorizationEndpoint),
-            Uri.parse(tokenEndpoint)
-        )
-
-        val authRequest = AuthorizationRequest.Builder(
-            config,
-            CLIENT_ID,
-            ResponseTypeValues.CODE,
-            Uri.parse(redirectUri)
-        )
-            .setScope(scope)
-            .build()
-
-        authService = AuthorizationService(this)
-        val authIntent = authService.getAuthorizationRequestIntent(authRequest)
-        startActivityForResult(authIntent, 0)
-
-        supportFragmentManager.commit {
-            replace<logoAndTittle>(R.id.frameLogoSpot)
-            setReorderingAllowed(true)
-            addToBackStack("replacement")
-        }
-
-
-        btnBuscar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                performSearch(query)
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                // Acciones que se hacen cuando el texto se va modificando
-                //de momento no usable.
-                return false
-            }
-        })
-
-        funcionExterna()
-    }
-    private fun performSearch(query: String) {
-
-        println("Texto buscado: $query")
-        buscarSong.searchSong(T1, object : SongDataCallback {
-            override fun onSongDataReceived(cancion: SongData) {
-                songData.imagen = cancion.imagen
-                songData.artista  = cancion.artista
-                songData.cancion = cancion.cancion
-                songData.key = cancion.key
-                songData.bpm = cancion.bpm
-                songData.popularidad == cancion.popularidad
-            }
-
-            override fun onError(message: String) {
-                println(message)
-            }
-        }, query)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == 0) {
-            val resp = AuthorizationResponse.fromIntent(data!!)
-            val ex = AuthorizationException.fromIntent(data)
-
-            if (resp != null) {
-                Log.e("SpotifyAuthorization", "Success authorization Spotify")
-                // Autorización exitosa, ahora se puede intercambiar el authorization code por un token de acceso
-                exchangeAuthorizationCodeForAccessToken(resp.authorizationCode)
-                toast("Success authorization Spotify", Toast.LENGTH_SHORT)
-
-                // Redirigir de vuelta a la actividad SpotifyRequest
-                val intent = Intent(this, SpotifyRequest::class.java)
-                startActivity(intent)
-
-            } else if (ex != null) {
-                // Ocurrió un error durante la autorización
-                Log.e("SpotifyAuthorization", "Error during authorization: $ex")
-            }
-
-            finish()
-        }
+    private fun connected() {
+        // Then we will write some more code here.
     }
 
-    private fun exchangeAuthorizationCodeForAccessToken(authorizationCode: String?) {
-        val tokenRequest = TokenRequest.Builder(
-            AuthorizationServiceConfiguration(Uri.parse(authorizationEndpoint), Uri.parse(tokenEndpoint)),
-            CLIENT_ID
-        )
-            .setAuthorizationCode(authorizationCode)
-            .setRedirectUri(Uri.parse(redirectUri))
-            .build()
-
-        authService.performTokenRequest(tokenRequest) { response, ex ->
-            if (response != null) {
-                val accessToken = response.accessToken
-                val refreshToken = response.refreshToken
-                if (accessToken != null) {
-                    T1 = accessToken
-                }
-                if (refreshToken != null) {
-                    TR = refreshToken
-                }
-                Log.d("SpotifyAuthorization", "Access Token: $accessToken")
-                Log.d("SpotifyAuthorization", "Refresh Token: $refreshToken")
-            } else {
-                Log.e("SpotifyAuthorization", "Error during token exchange: $ex")
-            }
-        }
-    }
-
-
-    override fun onBackPressed() {
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        toast("Server Finished", Toast.LENGTH_SHORT)
-        server.stopServer()
-    }
-    fun funcionExterna(){
-
-        val fragment = resultadoSpotify.newInstance(
-            imagen = songData.imagen,
-            artista = songData.artista,
-            cancion = songData.cancion,
-            key =  songData.key,
-            bpm = songData.bpm,
-            popularidad = songData.popularidad
-        )
-        supportFragmentManager.commit {
-            replace(R.id.frameSpotifyResults, fragment)
-            setReorderingAllowed(true)
-            addToBackStack("replacement")
-
-        }
-
+    private fun traerToken(): String {
+        val sharedPref = this.getSharedPreferences("SpotifyData", Context.MODE_PRIVATE)
+        return sharedPref.getString("Token", "") ?: ""
     }
 }
-
-//Para el envio de la info de la cancion
-/*supportFragmentManager.commit {
-    val bundle = Bundle()
-    bundle.putInt("imagen", R.drawable.piano)
-    bundle.putString("artista", "Stevie Ray Vaughan")
-    bundle.putString("cancion", "Pride and Joy")
-    bundle.putString("key", "Eb Major")
-    bundle.putString("bpm", "120")
-    bundle.putString("popularidad", "77")
-    val fragment = resultadoSpotify()
-    fragment.arguments = bundle
-    replace(R.id.frameSpotifyResults, fragment)
-    setReorderingAllowed(true)
-    addToBackStack("replacement")
-}*/

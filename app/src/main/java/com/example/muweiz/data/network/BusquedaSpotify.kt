@@ -23,7 +23,6 @@ class BusquedaSpotify {
     private lateinit var songData: SongData
     // Llamada a la búsqueda de la canción
     fun searchSong(accessToken: String, callback: SongDataCallback, titulo: String) : SongData?{
-
         val call = spotifyApiService.searchTrack("Bearer $accessToken", "Still Got the Blues", "track")
         call.enqueue(object : Callback<SearchResponse> {
             override fun onResponse(call: Call<SearchResponse>, response: Response<SearchResponse>){
@@ -34,7 +33,6 @@ class BusquedaSpotify {
                         val trackName = firstTrack.name
                         val artistName = firstTrack.artists.joinToString(", ") { it.name }
                         val trackUri = firstTrack.uri
-
                         val trackId = firstTrack.id
                         // Realiza una solicitud para obtener los detalles de la canción
                         val trackDetailsCall = spotifyApiService.getTrackDetails("Bearer $accessToken", trackId)
@@ -65,20 +63,15 @@ class BusquedaSpotify {
                                     Log.e("SpotifySearch", "Error en la llamada: ${response.code()}")
                                 }
                             }
-
                             override fun onFailure(call: Call<TrackDetailsResponse>, t: Throwable) {
                                 callback.onError("Error en la llamada: ${t.message}")
                                 Log.e("YourClass", "Error en la llamada: ${t.message}")
                             }
                         })
-
                         callback.onSongDataReceived(songData)
-
                         Log.d("SpotifySearch", "Track Name is: $trackName")
                         Log.d("SpotifySearch", "Artist Name: $artistName")
                         Log.d("SpotifySearch", "Track URI: $trackUri")
-
-
                     } else {
                         callback.onError("No se encontraron canciones")
                         Log.d("SpotifySearch", "No se encontraron canciones")
@@ -93,8 +86,8 @@ class BusquedaSpotify {
                 Log.e("YourClass", "Error en la llamada: ${t.message}")
             }
         })
-        if (songData != null){return songData}
-        else{return null}
+        if (::songData.isInitialized) {return songData}
+        else {return null}
     }
 }
 /*
