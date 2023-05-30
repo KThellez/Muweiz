@@ -1,5 +1,5 @@
 package com.example.muweiz.ui.login.signin
-
+/*
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -160,4 +160,4 @@ class   SignIn : AppCompatActivity() {
     private fun goToLogin() {
         startActivity(Login.create(this))
     }
-}
+}*/

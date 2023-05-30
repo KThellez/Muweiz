@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "540395468708-9n42k65s173epp1cqc31v68kk5i0meu6.apps.googleusercontent.com",
+          "client_id": "540395468708-kdmpl86fgcmqkfkop7i1494aakma9me7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muweiz",
+            "certificate_hash": "607c0608c9aa690297d8a7760f6051f98524f885"
+          }
+        },
+        {
+          "client_id": "540395468708-ou5r87qkku72neu5vt6g6g7mfj8l1u7m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

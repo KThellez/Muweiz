@@ -2,7 +2,6 @@ package com.example.muweiz.ui.view
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,26 +10,16 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import com.example.muweiz.BuildConfig
 import com.example.muweiz.R
 import com.example.muweiz.ui.viewModel.logoAndTittle
-import com.example.muweiz.ui.viewModel.resultadoSpotify
 import com.spotify.android.appremote.api.ConnectionParams
 import com.spotify.android.appremote.api.Connector
 import com.spotify.android.appremote.api.SpotifyAppRemote
-import com.spotify.protocol.types.Track
-import okhttp3.*
-import com.android.volley.Request
-import com.android.volley.Response
 import com.example.muweiz.data.ServidorLocal.ServidorLocal
-import com.example.muweiz.data.extention.toast
 import com.example.muweiz.data.network.*
 import com.example.muweiz.databinding.ActivitySpotifyRequestBinding
 import com.spotify.android.appremote.api.error.SpotifyRemoteServiceException
-import net.openid.appauth.*
-import java.io.IOException
 import kotlin.coroutines.cancellation.CancellationException
 
 class SpotifyRequest : AppCompatActivity(), AuthResultListener {
@@ -49,9 +38,8 @@ class SpotifyRequest : AppCompatActivity(), AuthResultListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivitySpotifyRequestBinding.inflate(layoutInflater)
-
         super.onCreate(savedInstanceState)
+        binding = ActivitySpotifyRequestBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         btnBuscar = binding.buscador
@@ -95,6 +83,7 @@ class SpotifyRequest : AppCompatActivity(), AuthResultListener {
 
 
     override fun onAuthResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        spotifyAuthenticator.setAuthResultListener(this)
         spotifyAuthenticator.handleAuthResponse(requestCode, resultCode, data)
     }
 

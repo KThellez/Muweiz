@@ -87,6 +87,7 @@
     <string name="dialog_success_positive">¡Gracias!</string>
 
     <string name="first_fragment_label">Etiqueta del primer fragmento</string>
-    <string name="app_auth_redirect_scheme" >http</string>
+    <string name="app_auth_redirect_scheme">http</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>

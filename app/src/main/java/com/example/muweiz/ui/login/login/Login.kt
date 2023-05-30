@@ -1,5 +1,5 @@
 package com.example.muweiz.ui.login.login
-
+/*
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -162,4 +162,4 @@ class Login : AppCompatActivity() {
     private fun goToSplash() {
         //
     }
-}
+}*/

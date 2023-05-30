@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SignInViewModel @Inject constructor(val createAccountUseCase: CreateAccountUseCase) : ViewModel() {
         private companion object {
-            const val MIN_PASSWORD_LENGTH = 6
+            const val MIN_PASSWORD_LENGTH = 4
         }
         private val _navigateToLogin = MutableLiveData<Event<Boolean>>()
         val navigateToLogin: LiveData<Event<Boolean>>
