@@ -46,8 +46,8 @@ class Teoria : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        binding.frameArmoniaI.setOnClickListener {  }
-        binding.frameEscalaModo.setOnClickListener {  }
+        binding.frameArmoniaI.setOnClickListener { startActivity(Intent(this, WorkInPogress::class.java)) }
+        binding.frameEscalaModo.setOnClickListener {startActivity(Intent(this, WorkInPogress::class.java))  }
         binding.frameCadencia.setOnClickListener { startActivity(Intent(this, WorkInPogress::class.java)) }
         binding.frameAnalisisArmonico.setOnClickListener { startActivity(Intent(this, WorkInPogress::class.java)) }
         binding.frameVoicings251.setOnClickListener { startActivity(Intent(this, WorkInPogress::class.java)) }
