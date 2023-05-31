@@ -7,5 +7,7 @@ class ContentItemDocumentos(
     val bold: Boolean,
     val italic: Boolean,
     val text: String,
-    val color: String
+    val color: String,
+    val imageName: String,
+    val imageCategory: String
 ) : Serializable

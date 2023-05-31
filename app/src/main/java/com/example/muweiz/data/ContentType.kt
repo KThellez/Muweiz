@@ -5,5 +5,6 @@ enum class ContentType {
     H2,
     H3,
     P1,
-    P2
+    P2,
+    imageViewFB
 }

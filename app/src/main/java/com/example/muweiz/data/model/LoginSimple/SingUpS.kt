@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import com.example.muweiz.R
 import com.example.muweiz.data.extention.dismissKeyboard
 import com.example.muweiz.data.extention.toast
 import com.example.muweiz.data.model.login.UserSignIn
@@ -18,6 +19,10 @@ import com.example.muweiz.data.network.UsuarioServicio
 import com.example.muweiz.databinding.ActivitySingUpSBinding
 import com.example.muweiz.ui.view.MainActivity
 import com.example.muweiz.ui.viewModel.signin.SignInViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -89,6 +94,11 @@ class SingUpS : AppCompatActivity() {
             }
 
         }
+        binding.btnRegisterGoogle.isVisible = false
+        val btnSignUpGoogle = binding.btnRegisterGoogle
+        btnSignUpGoogle.setOnClickListener {
+            signInWithGoogle()
+        }
     }
 
     private fun createAccount(nickname: String, realname: String, email: String, p1: String, p2: String) {
@@ -123,5 +133,41 @@ class SingUpS : AppCompatActivity() {
             // Maneja cualquier excepción que pueda ocurrir
             toast("Error al crear la tabla de usuario: ${e.message}", Toast.LENGTH_SHORT)
         }
+    }
+    private fun registerUserWithGoogle(account: GoogleSignInAccount) {
+        val email = account.email
+        val nickname = account.displayName
+        val realname = account.givenName
+
+        createAccount(nickname!!, realname!!, email!!, "", "")
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                if (account != null) {
+                    // Registra el usuario con los datos de Google
+                    registerUserWithGoogle(account)
+                }
+            } catch (e: ApiException) {
+                Toast.makeText(this, getString(R.string.NoSuccessSignInGoogle), Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    private fun signInWithGoogle() {
+        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        val googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+    companion object {
+        private const val RC_SIGN_IN = 9001
     }
 }

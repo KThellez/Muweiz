@@ -31,7 +31,11 @@
     <string name="gospel">Gospel</string>
     <string name="buscador_cancion">Search for the song or artist</string>
     <string name="confirmar_salida">Confirm departure</string>
-    <string name="pregunta_confirmar_salida">Are you sure you want to go out?</string>
+    <string name="pregunta_confirmar_salida">Are you sure you want to go out?\nYour session will be closed\nautomatically</string>
+    <string name="SuccessSignInGoogle">Successful Google login</string>
+    <string name="NoSuccessSignInGoogle">Google login failed</string>
+    <string name="SuccessSignIn">Successful Login</string>
+    <string name="NoSuccessSign">Email or Password Error</string>
     <string name="si">Yes</string>
     <string name="no">No</string>
     <string name="estas_home">You are already in Home</string>
@@ -47,6 +51,7 @@
     <string name="login_error_password">Must contain at least 4 characters</string>
     <string name="login_footer_unselected">Don\'t have an account yet?</string>
     <string name="login_footer_selected">Sign Up</string>
+    <string name="login_footer_selectedGo">Sign Up With Google</string>
     <string name="login_error_dialog_title">We have not found the user</string>
     <string name="login_error_dialog_body">Verify data or try again</string>
     <string name="login_error_dialog_negative_action">Cancel</string>
@@ -109,8 +114,10 @@
     <string name="p1_Conceptos_1.2.2.4">\t\t\t\tThe percussion clef is written by placing two vertical and parallel bars. It is used to indicate that the written music is for percussion instruments. Instead of representing specific pitches, additional symbols are used to indicate which percussion instruments will play in that part of the music.\n</string>
     <string name="h3_Conceptos_1.2.3">\t\t1.2.3 Notes\n</string>
     <string name="p1_Conceptos_1.2.3">\t\t\tThey depend on the clef, the position on the staff, and the figure with which they are presented.\n</string>
-    <string name="h3_Conceptos_1.2.4">\t\t1.2.4 The Grand Staff\n</string>
-    <string name="p1_Conceptos_1.2.4">\t\t\tThe grand staff or eleven-line staff is a primitive form of the staff. As the name implies, it has 11 lines, which made it very complex to read.\nToday, what we use is the new concept of the grand staff, which is the usual way of writing piano works. It involves using both the treble clef and the bass clef multiple times to denote the high and low notes of the piano in each section of the musical piece.\n</string>
+    <string name="h3_Conceptos_1.2.4">\t1\t1.2.5 Additional Lines\n</string>
+    <string name="p1_Conceptos_1.2.4">\t\t\t Sometimes it is necessary to add additional lines to the staff to indicate notes that go beyond the staff\'s range.\n</string>
+    <string name="h3_Conceptos_1.2.5">\t\t1.2.5 The Grand Staff\n</string>
+    <string name="p1_Conceptos_1.2.5">\t\t\tThe grand staff or eleven-line staff is a primitive form of the staff. As the name implies, it has 11 lines, which made it very complex to read.\nToday, what we use is the new concept of the grand staff, which is the usual way of writing piano works. It involves using both the treble clef and the bass clef multiple times to denote the high and low notes of the piano in each section of the musical piece.\n</string>
 
 
     <eat-comment>INTERVALOS!</eat-comment>
@@ -122,5 +129,16 @@
         In summary, intervals are a fundamental concept in music theory and are essential for understanding the structure and relationships between notes and chords in music.
     </string>
 
+
+
+    <eat-comment>Etiqueta Imagenes!</eat-comment>
+    <string name="img_Pentagrama_1.2.1">Staff Image</string>
+    <string name="img_trebleClef.1.2.2.1">Treble Clef</string>
+    <string name="img_bassClef.1.2.2.2">Bass Clef</string>
+    <string name="img_altoClef.1.2.2.3">Alto Clef</string>
+    <string name="img_tenorClef.1.2.2.3">Tenor Clef</string>
+    <string name="img_percusionClef.1.2.2.4">Percussion Clef</string>
+    <string name="img_lineasAdicionales.1.2.4">Additional Lines</string>
+    <string name="img_GranPentagrama.1.2.5">The Grand Staff</string>
 
 </resources>

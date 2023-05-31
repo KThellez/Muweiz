@@ -30,7 +30,11 @@
     <string name="gospel">Góspel</string>
     <string name="buscador_cancion">Busca la canción o artista</string>
     <string name="confirmar_salida">Confirmar salida</string>
-    <string name="pregunta_confirmar_salida">¿Estás seguro que quieres salir?</string>
+    <string name="pregunta_confirmar_salida">¿Estás seguro que quieres salir?\nSe cerrara su sesion\nde forma automatica</string>
+    <string name="SuccessSignInGoogle">Inicio de sesión con Google exitoso</string>
+    <string name="NoSuccessSignInGoogle">Error de inicio de sesión con Google</string>
+    <string name="SuccessSignIn">Ingreso Correctamente</string>
+    <string name="NoSuccessSign">Error de Email o Password</string>
     <string name="si">Si</string>
     <string name="no">No</string>
     <string name="estas_home">Ya
@@ -49,6 +53,7 @@
     <string name="login_error_password">Debe contener al menos 4 caracteres</string>
     <string name="login_footer_unselected">¿Todavía no tienes cuenta?</string>
     <string name="login_footer_selected">Regístrate</string>
+    <string name="login_footer_selectedGo">Regístrate Con Google</string>
     <string name="login_error_dialog_title">No hemos encontrado el usuario</string>
     <string name="login_error_dialog_body">Verifique los datos o vuelva a intentarlo</string>
     <string name="login_error_dialog_negative_action">Cancelar</string>
@@ -111,8 +116,10 @@
     <string name="p1_Conceptos_1.2.2.4">\t\t\t\tLa clave de percusión, se escribe colocando dos barras verticales y paralelas, se utiliza para indicar que la música escrita es para instrumentos de percusión. En lugar de representar alturas específicas, se utilizan símbolos adicionales para indicar qué instrumentos de percusión tocarán en esa parte de la música.\n</string>
     <string name="h3_Conceptos_1.2.3">\t1\t1.2.3 Las Notas\n</string>
     <string name="p1_Conceptos_1.2.3">\t\t\tDependen de la clave, de la posición en el pentagrama y de la figura con la que se presenten.\n</string>
-    <string name="h3_Conceptos_1.2.4">\t1\t1.2.4 El Endecagrama\n</string>
-    <string name="p1_Conceptos_1.2.4">\t\t\tEl gran pentagrama o endecagrama es un la forma primitiva del pentagrama, como su nombre lo indica posee 11 líneas por lo cual era muy complejo de leer.\nHoy día lo que utilizamos es el nuevo concepto de gran pentagrama que es la forma habitual de escribir obras para piano la cual es usar de forma múltiple la clave de sol y la clave de fa, para denotar las notas altas y las bajas del piano en cada sección de la obra musical.\n</string>
+    <string name="h3_Conceptos_1.2.4">\t1\t1.2.5 Líneas Adicionales\n</string>
+    <string name="p1_Conceptos_1.2.4">\t\t\t En ocasiones es necesario agregar líneas adicionales al pentagrama para denotar notas que se salen del registro del pentagrama.\n</string>
+    <string name="h3_Conceptos_1.2.5">\t1\t1.2.5 El Endecagrama\n</string>
+    <string name="p1_Conceptos_1.2.5">\t\t\tEl gran pentagrama o endecagrama es un la forma primitiva del pentagrama, como su nombre lo indica posee 11 líneas por lo cual era muy complejo de leer.\nHoy día lo que utilizamos es el nuevo concepto de gran pentagrama que es la forma habitual de escribir obras para piano la cual es usar de forma múltiple la clave de sol y la clave de fa, para denotar las notas altas y las bajas del piano en cada sección de la obra musical.\n</string>
 
     <eat-comment>INTERVALOS!</eat-comment>
 
@@ -125,5 +132,17 @@
 
     </string>
 
+
+
+
+    <eat-comment>Etiqueta Imagenes!</eat-comment>
+    <string name="img_Pentagrama_1.2.1">Imagen de Pentagrama</string>
+    <string name="img_trebleClef.1.2.2.1">Clave de Sol</string>
+    <string name="img_bassClef.1.2.2.2">Clave de Fa</string>
+    <string name="img_altoClef.1.2.2.3">Clave de Do en tercera</string>
+    <string name="img_tenorClef.1.2.2.3">Clave de Do en Cuarta</string>
+    <string name="img_percusionClef.1.2.2.4">Clave de Percusión</string>
+    <string name="img_lineasAdicionales.1.2.4">Líneas Adicionales</string>
+    <string name="img_GranPentagrama.1.2.5">El Gran Pentagrama</string>
 
 </resources>

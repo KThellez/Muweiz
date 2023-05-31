@@ -11,13 +11,18 @@ import androidx.fragment.app.replace
 import com.example.muweiz.*
 import com.example.muweiz.ui.viewModel.logoAndTittle
 import com.google.firebase.analytics.FirebaseAnalytics
-
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        firebaseAuth = Firebase.auth
 
     //USAR los FRAMELAYOUT para que tengan listeners!
         val logo = findViewById<FrameLayout>(R.id.frameLogo);
@@ -197,6 +202,7 @@ class MainActivity : AppCompatActivity() {
             }
             .setNegativeButton(getString(R.string.no), null)
             .show()
+        Firebase.auth.signOut()
     }
 
 }

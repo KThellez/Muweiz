@@ -42,9 +42,7 @@ class Teoria : AppCompatActivity() {
             vistaBasics()
         }
         binding.frameIntervalos .setOnClickListener{
-            val intent = Intent(this, vista_documentos::class.java)
-            startActivity(intent)
-            finish()
+            vistaIntervalos()
         }
         binding.frameArmoniaI.setOnClickListener { startActivity(Intent(this, WorkInPogress::class.java)) }
         binding.frameEscalaModo.setOnClickListener {startActivity(Intent(this, WorkInPogress::class.java))  }
@@ -151,29 +149,47 @@ class Teoria : AppCompatActivity() {
 
         // Crear la lista de elementos de contenido a enviar
         val contentList = mutableListOf<ContentItemDocumentos>()
-        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, getString(R.string.h1_Conceptos_1), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P1, false, false, getString(R.string.p1_Conceptos_1), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P2, false, true, getString(R.string.p2_Conceptos_1), "#cccccc"))
-        contentList.add(ContentItemDocumentos(ContentType.H2, true, false, getString(R.string.h2_Conceptos_1_2), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_1), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_1), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2_1), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2_1), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P2, false, true, getString(R.string.p2_Conceptos_1_2_2_1), "#cccccc"))
-        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2_2), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2_2), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P2, false, true, getString(R.string.p2_Conceptos_1_2_2_2), "#cccccc"))
-        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2_3), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2_3), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P2, false, true, getString(R.string.p2_Conceptos_1_2_2_3), "#cccccc"))
-        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2_4), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2_4), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_3), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_3), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_4), "#ffffff"))
-        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_4), "#ffffff"))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, getString(R.string.h1_Conceptos_1), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, false, getString(R.string.p1_Conceptos_1), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P2, false, true, getString(R.string.p2_Conceptos_1), "#cccccc", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H2, true, false, getString(R.string.h2_Conceptos_1_2), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_1), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_1), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.imageViewFB, false, false, getString(R.string.img_Pentagrama_1_2_1), "","pentagrama.png","basics"))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, "_______________________________", "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2_1), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2_1), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P2, false, true, getString(R.string.p2_Conceptos_1_2_2_1), "#cccccc", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.imageViewFB, false, false, getString(R.string.img_trebleClef_1_2_2_1), "","trebleClef.png","basics"))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, "_______________________________", "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2_2), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2_2), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P2, false, true, getString(R.string.p2_Conceptos_1_2_2_2), "#cccccc", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.imageViewFB, false, false, getString(R.string.img_bassClef_1_2_2_2), "","bassClef.png","basics"))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, "_______________________________", "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2_3), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2_3), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P2, false, true, getString(R.string.p2_Conceptos_1_2_2_3), "#cccccc", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.imageViewFB, false, false, getString(R.string.img_altoClef_1_2_2_3), "","altoClef.png","basics"))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, "_______________________________", "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.imageViewFB, false, false, getString(R.string.img_tenorClef_1_2_2_3), "","tenorClef.png","basics"))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, "_______________________________", "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_2_4), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_2_4), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.imageViewFB, false, false, getString(R.string.img_percusionClef_1_2_2_4), "","percusionClef.png","basics"))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, "_______________________________", "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_3), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_3), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_4), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.imageViewFB, false, false, getString(R.string.img_lineasAdicionales_1_2_4), "","lineasAdicionales.png","basics"))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_4), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, "_______________________________", "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.H3, false, false, getString(R.string.h3_Conceptos_1_2_5), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, true, getString(R.string.p1_Conceptos_1_2_5), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.imageViewFB, false, false, getString(R.string.img_GranPentagrama_1_2_5), "","GranPentragrama.png","basics"))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, "_______________________________", "#ffffff", "",""))
 
         // Pasar la lista de elementos de contenido a la actividad vista_documentos
         intent.putExtra("content_list", ArrayList(contentList))
@@ -181,16 +197,18 @@ class Teoria : AppCompatActivity() {
         startActivity(intent)
     }
     private fun vistaIntervalos(){
-        //Abre el fragment y envia parametros.
-        supportFragmentManager.commit {
-            val bundle = Bundle()
-            bundle.putString("texto", getString(R.string.def_intervalos))
-            val fragment = titulo()
-            fragment.arguments = bundle
 
-            replace(R.id.frameTituloTeoria, fragment)
-            setReorderingAllowed(true)
-            addToBackStack("replacement")
-        }
+        val intent = Intent(this, vista_documentos::class.java)
+
+        // Crear la lista de elementos de contenido a enviar
+        val contentList = mutableListOf<ContentItemDocumentos>()
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, getString(R.string.intervalos), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.P1, false, false, getString(R.string.def_intervalos), "#ffffff", "",""))
+        contentList.add(ContentItemDocumentos(ContentType.imageViewFB, false, false, getString(R.string.intervalos), "","infografiaIntervalos.png","intervals"))
+        contentList.add(ContentItemDocumentos(ContentType.H1, true, false, "_______________________________", "#ffffff", "",""))
+        // Pasar la lista de elementos de contenido a la actividad vista_documentos
+        intent.putExtra("content_list", ArrayList(contentList))
+
+        startActivity(intent)
     }
 }
