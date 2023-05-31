@@ -59,6 +59,17 @@
                         android:layout_margin="10dp"
                         android:layout_weight="0.5">
                     </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frameConceptos"
+                        android:layout_width="match_parent"
+                        android:layout_height="84dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/bg_rounded_corners">
+
+                    </FrameLayout>
+
                     <FrameLayout
                         android:id="@+id/frameIntervalos"
                         android:layout_width="match_parent"

@@ -18,9 +18,9 @@
             android:id="@+id/logoTeoria"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.85"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="20dp"
+            android:layout_weight="0.9"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="12dp"
             android:layout_marginLeft="52dp"
             android:layout_marginRight="52dp"
             android:orientation="vertical">
@@ -35,7 +35,7 @@
             android:id="@+id/cuerpoTeoria"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.15"
+            android:layout_weight="0.1"
             android:layout_margin="20dp"
             android:orientation="vertical">
 
@@ -47,42 +47,14 @@
                 android:contentDescription="Scrollable view Container">
 
                 <LinearLayout
-                    android:id="@+id/layoutBtnTeoria"
+                    android:id="@+id/layoutContenedorInformacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <FrameLayout
-                        android:id="@+id/frameTextoPrincipal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5">
-                    </FrameLayout>
-                    <FrameLayout
-                        android:id="@+id/frameImgPrincipal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/bg_rounded_corners">
-
-                    </FrameLayout>
-                    <FrameLayout
-                        android:id="@+id/frameTextoSecundario"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/bg_rounded_corners">
-
-                    </FrameLayout>
-
-
 
                 </LinearLayout>
 
             </ScrollView>
-
 
         </LinearLayout>
     </LinearLayout>

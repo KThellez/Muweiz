@@ -14,6 +14,7 @@
     <string name="configuracion">Settings</string>
     <string name="ts">T.S</string>
     <string name="afinacion_tipo">Tuning types</string>
+    <string name="conceptos">Basics</string>
     <string name="intervalos">Intervals</string>
     <string name="armonia_basica">Basic Harmony</string>
     <string name="escalas_modos">Scales and Modes</string>
@@ -34,23 +35,18 @@
     <string name="si">Yes</string>
     <string name="no">No</string>
     <string name="estas_home">You are already in Home</string>
-    <string name="def_intervalos">
-        To understand any melody or harmony in music, it is essential to have a solid understanding of intervals. In music theory, an interval is the distance between two pitches, which can be measured in half-steps or whole-steps.\n\n
-        In Western music, the smallest interval is the half-step or semitone, which is the distance between any two adjacent keys on a piano. The next smallest interval is the whole-step or tone, which is the distance between notes that are two keys apart on the piano.\n\n
-        Interval measurements consist of two parts: quantity and quality. The quantity of an interval is determined by its numeric value, which is based on the musical alphabet (C, D, E, F, G, A, B). For example, the interval formed by the notes C and G will always be some type of fifth, regardless of the quality of the C or G (whether they are flat or sharp).\n\n
-        The quality of an interval is determined by the number of half-steps between the two notes. There are five basic qualities of intervals: perfect, major, minor, augmented, and diminished. The perfect intervals (unison, fourth, fifth, and octave) are considered the most stable and consonant, while the major and minor intervals (third, sixth, and seventh) create more tension and dissonance.\n\n
-        In summary, intervals are a fundamental concept in music theory and are essential for understanding the structure and relationships between notes and chords in music.
-    </string>
+
 
 
     <string name="login_sign_in">¿Todavía no tienes cuenta? Regístrate</string>
     <string name="login_button_loggin">LOGIN</string>
+    <string name="ingresarBtn">Sign In</string>
     <string name="login_hint_password">Password</string>
     <string name="login_hint_user">Email or NickName</string>
     <string name="login_error_mail">Email invalid</string>
-    <string name="login_error_password">Must contain at least 6 characters</string>
+    <string name="login_error_password">Must contain at least 4 characters</string>
     <string name="login_footer_unselected">Don\'t have an account yet?</string>
-    <string name="login_footer_selected">Sign In</string>
+    <string name="login_footer_selected">Sign Up</string>
     <string name="login_error_dialog_title">We have not found the user</string>
     <string name="login_error_dialog_body">Verify data or try again</string>
     <string name="login_error_dialog_negative_action">Cancel</string>
@@ -86,6 +82,45 @@
     <string name="first_fragment_label">first Fragment</string>
     <string name="app_auth_redirect_scheme" >http</string>
 
+    <string name="wip">Work/nIn Progress</string>
+
+
+
+    <eat-comment>Conceptos!</eat-comment>
+
+    <string name="h1_Conceptos_1">Terminology\n\n</string>
+    <string name="p1_Conceptos_1">\tTo represent music graphically, it is necessary to understand two concepts:\n\t<b>Horizontalism:</b> It refers to the duration of the notes and the rhythm.\n\t<b>Verticalism:</b> It refers to the pitch of the notes and their distances.\n</string>
+    <string name="p2_Conceptos_1">If you don\'t understand this at the moment, don\'t worry, we will gradually delve deeper into these topics.\n</string>
+    <string name="h2_Conceptos_1.2">\t1.2 Vertical\n</string>
+    <string name="h3_Conceptos_1.2.1">\t\t1.2.1 The Staff\n</string>
+    <string name="p1_Conceptos_1.2.1">\t\t\tIt is the way to write or graphically represent music, consisting of five horizontal and parallel lines.\nIt serves as a foundation for adding signs and rhythmic figures, with each line and space of the staff representing a musical figure.\nIn summary, the staff is a structure of five horizontal lines used to graphically represent written music, allowing precise placement of notes and other musical symbols in relation to their pitch and duration.\n</string>
+    <string name="h3_Conceptos_1.2.2">\t\t1.2.2 Clefs\n</string>
+    <string name="p1_Conceptos_1.2.2">\t\t\tIt is a symbol that is written at the beginning of the score and above the staff, which defines the exact position of the notes corresponding to each line and space of the staff.\n</string>
+    <string name="h3_Conceptos_1.2.2.1">\t\t\t1.2.2.1 Treble Clef\n</string>
+    <string name="p1_Conceptos_1.2.2.1">\t\t\t\tThe treble clef resembles an "S" and is positioned on the second line from the bottom of the staff, indicating that this line represents the note G.\n</string>
+    <string name="p2_Conceptos_1.2.2.1">The treble clef is also known as the soprano clef.\n</string>
+    <string name="h3_Conceptos_1.2.2.2">\t\t\t1.2.2.2 Bass Clef\n</string>
+    <string name="p1_Conceptos_1.2.2.2">\t\t\t\tThe bass clef, which looks like an inverted "F," is placed on the third or fourth line from the bottom of the staff. This line represents the note F.\n</string>
+    <string name="p2_Conceptos_1.2.2.2">The bass clef is also known as the bass clef.\n</string>
+    <string name="h3_Conceptos_1.2.2.3">\t\t\t1.2.2.3 C Clef\n</string>
+    <string name="p1_Conceptos_1.2.2.3">\t\t\t\tThe C clef, consisting of two stylized inverted "C" symbols, is placed on the third or fourth line from the bottom of the staff. This line represents the note C.\n</string>
+    <string name="p2_Conceptos_1.2.2.3">The alto clef represents the C clef in the third position, and the tenor clef represents the C clef in the fourth position.\n</string>
+    <string name="h3_Conceptos_1.2.2.4">\t\t\t1.2.2.4 Percussion Clef\n</string>
+    <string name="p1_Conceptos_1.2.2.4">\t\t\t\tThe percussion clef is written by placing two vertical and parallel bars. It is used to indicate that the written music is for percussion instruments. Instead of representing specific pitches, additional symbols are used to indicate which percussion instruments will play in that part of the music.\n</string>
+    <string name="h3_Conceptos_1.2.3">\t\t1.2.3 Notes\n</string>
+    <string name="p1_Conceptos_1.2.3">\t\t\tThey depend on the clef, the position on the staff, and the figure with which they are presented.\n</string>
+    <string name="h3_Conceptos_1.2.4">\t\t1.2.4 The Grand Staff\n</string>
+    <string name="p1_Conceptos_1.2.4">\t\t\tThe grand staff or eleven-line staff is a primitive form of the staff. As the name implies, it has 11 lines, which made it very complex to read.\nToday, what we use is the new concept of the grand staff, which is the usual way of writing piano works. It involves using both the treble clef and the bass clef multiple times to denote the high and low notes of the piano in each section of the musical piece.\n</string>
+
+
+    <eat-comment>INTERVALOS!</eat-comment>
+    <string name="def_intervalos">
+        To understand any melody or harmony in music, it is essential to have a solid understanding of intervals. In music theory, an interval is the distance between two pitches, which can be measured in half-steps or whole-steps.\n\n
+        In Western music, the smallest interval is the half-step or semitone, which is the distance between any two adjacent keys on a piano. The next smallest interval is the whole-step or tone, which is the distance between notes that are two keys apart on the piano.\n\n
+        Interval measurements consist of two parts: quantity and quality. The quantity of an interval is determined by its numeric value, which is based on the musical alphabet (C, D, E, F, G, A, B). For example, the interval formed by the notes C and G will always be some type of fifth, regardless of the quality of the C or G (whether they are flat or sharp).\n\n
+        The quality of an interval is determined by the number of half-steps between the two notes. There are five basic qualities of intervals: perfect, major, minor, augmented, and diminished. The perfect intervals (unison, fourth, fifth, and octave) are considered the most stable and consonant, while the major and minor intervals (third, sixth, and seventh) create more tension and dissonance.\n\n
+        In summary, intervals are a fundamental concept in music theory and are essential for understanding the structure and relationships between notes and chords in music.
+    </string>
 
 
 </resources>

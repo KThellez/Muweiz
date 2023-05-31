@@ -41,7 +41,7 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Usuario o Correo"
+            android:hint="@string/login_hint_user"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress" />
 
@@ -62,7 +62,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
+            android:hint="@string/login_hint_password"
             android:imeOptions="actionDone"
             android:inputType="textPassword" />
 
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:text="Registrarse"
+        android:text="@string/login_footer_selected"
         android:textColor="@color/btn_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
@@ -88,7 +88,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/bg_rounded_corners_btn_metronomo"
-        android:text="Iniciar Sesion"
+        android:text="@string/login_button_loggin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />

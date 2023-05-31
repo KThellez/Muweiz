@@ -13,6 +13,7 @@
     <string name="configuracion">Configuración</string>
     <string name="ts">T.S</string>
     <string name="afinacion_tipo">Afinación Tipos</string>
+    <string name="conceptos">Conceptos</string>
     <string name="intervalos">Intervalos</string>
     <string name="armonia_basica">Armonía Básica</string>
     <string name="escalas_modos">Escalas y Modos</string>
@@ -36,21 +37,16 @@
         estás
         en
         Home</string>
-    <string name="def_intervalos">
-        Para entender cualquier melodía o armonía musical, es esencial tener una sólida comprensión de los intervalos. En teoría musical, un intervalo es la distancia entre dos tonos, que puede medirse en semitonos o tonos.\n\n
-        En la música occidental, el intervalo más pequeño es el semitono, que es la distancia entre dos teclas adyacentes en un piano. El siguiente intervalo más pequeño es el paso entero o tono, que es la distancia entre las notas que están a dos teclas de distancia en el piano.\n\n
-        Las mediciones de intervalos constan de dos partes: cantidad y calidad. La cantidad de un intervalo viene determinada por su valor numérico, que se basa en el alfabeto musical (Do, Re, Mi, Fa, Sol, La, Si). Por ejemplo, el intervalo formado por las notas Do y Sol siempre será algún tipo de quinta, independientemente de la cualidad de Do o Sol (si son bemoles o sostenidos).\n\n
-        La calidad de un intervalo viene determinada por el número de semitonos que hay entre las dos notas. Existen cinco calidades básicas de intervalos: perfectos, mayores, menores, aumentados y disminuidos. Los intervalos perfectos (unísono, cuarta, quinta y octava) se consideran los más estables y consonantes, mientras que los intervalos mayores y menores (tercera, sexta y séptima) crean más tensión y disonancia.\n\n
-        En resumen, los intervalos son un concepto fundamental en la teoría musical y son esenciales para comprender la estructura y las relaciones entre las notas y los acordes en la música.
 
-    </string>
+
 
     <string name="login_sign_in">¿Todavía no tienes cuenta? Regístrate</string>
     <string name="login_button_loggin">INICIAR SESIÓN</string>
+    <string name="ingresarBtn">Ingresar</string>
     <string name="login_hint_password">Contraseña</string>
     <string name="login_hint_user">Usuario o correo</string>
     <string name="login_error_mail">El email no es válido</string>
-    <string name="login_error_password">Debe contener al menos 6 caracteres</string>
+    <string name="login_error_password">Debe contener al menos 4 caracteres</string>
     <string name="login_footer_unselected">¿Todavía no tienes cuenta?</string>
     <string name="login_footer_selected">Regístrate</string>
     <string name="login_error_dialog_title">No hemos encontrado el usuario</string>
@@ -88,6 +84,46 @@
 
     <string name="first_fragment_label">Etiqueta del primer fragmento</string>
     <string name="app_auth_redirect_scheme">http</string>
-    <string name="title_activity_maps">MapsActivity</string>
+    <string name="wip">Estamos\nTrabajando</string>
+
+
+
+
+    <eat-comment>Conceptos!</eat-comment>
+    <string name="h1_Conceptos_1">Terminología\n\n</string>
+    <string name="p1_Conceptos_1">\tPara representar la musica de forma gráfica es necesario comprender dos conceptos:\n\t<b>La Horizontalidad:</b> Nos habla de la duración de las notas y el ritmo\n\t<b>La Verticalidad:</b> Nos habla de la altura de las notas y de sus distancias.\n</string>
+    <string name="p2_Conceptos_1">Si no entiendes esto de momento, no te preocupes, poco a poco iremos ahondando más en estos temas.\n</string>
+    <string name="h2_Conceptos_1.2">\t1.2 Vertical\n</string>
+    <string name="h3_Conceptos_1.2.1">\t\t1.2.1 El Pentagrama\n</string>
+    <string name="p1_Conceptos_1.2.1">\t\t\tEs la forma de escribir o representar gráficamente la música, está conformado de cinco líneas horizontales y paralelas\nEs la base en la cual se añaden signos y figuras rítmicas, cada línea y cada espacio del pentagrama representan una figura musical.\nEn resumen, el pentagrama es una estructura de cinco líneas horizontales utilizada para representar gráficamente la música escrita, permitiendo la ubicación precisa de las notas y otros símbolos musicales en relación con su altura y duración.\n</string>
+    <string name="h3_Conceptos_1.2.2">\t1\t1.2.2 Las Claves\n</string>
+    <string name="p1_Conceptos_1.2.2">\t\t\tEs un simbolo que se escribe al inicio de la partitura y sobre el pentagrama, el cual define la posición exacta de las notas a la que corresponderá cada línea y espacio del pentagrama. \n</string>
+    <string name="h3_Conceptos_1.2.2.1">\t1\t\t1.2.2.1 Clave de Sol\n</string>
+    <string name="p1_Conceptos_1.2.2.1">\t\t\t\tLa clave de sol se asemeja a una "S" y se posiciona sobre la segunda linea de abajo arriba del pentagrama,lo cual indica que esa línea representa la nota Sol\n</string>
+    <string name="p2_Conceptos_1.2.2.1">La clave de sol también es conocida como clave de soprano \n</string>
+    <string name="h3_Conceptos_1.2.2.2">\t1\t\t1.2.2.2 Clave de Sol\n</string>
+    <string name="p1_Conceptos_1.2.2.2">\t\t\t\tLa clave de fa, que se parece a una "F" invertida, se coloca en la tercera o cuarta linea de abajo arriba del pentagrama. Esta línea representa la nota Fa \n</string>
+    <string name="p2_Conceptos_1.2.2.2">La clave de fa también es conocida como clave de bajo\n</string>
+    <string name="h3_Conceptos_1.2.2.3">\t1\t\t1.2.2.3 Clave de Do\n</string>
+    <string name="p1_Conceptos_1.2.2.3">\t\t\t\tLa clave de do, son dos “C” invertidas y estilizadas, se coloca en la tercera o cuarta linea de abajo arriba del pentagrama. Esta línea representa la nota Do\n</string>
+    <string name="p2_Conceptos_1.2.2.3">La clave de do en tercera también es conocida como clave de alto y la de do en cuarta es conocida como la clave de tenor\n</string>
+    <string name="h3_Conceptos_1.2.2.4">\t1\t\t1.2.2.4 Clave de Percusión\n</string>
+    <string name="p1_Conceptos_1.2.2.4">\t\t\t\tLa clave de percusión, se escribe colocando dos barras verticales y paralelas, se utiliza para indicar que la música escrita es para instrumentos de percusión. En lugar de representar alturas específicas, se utilizan símbolos adicionales para indicar qué instrumentos de percusión tocarán en esa parte de la música.\n</string>
+    <string name="h3_Conceptos_1.2.3">\t1\t1.2.3 Las Notas\n</string>
+    <string name="p1_Conceptos_1.2.3">\t\t\tDependen de la clave, de la posición en el pentagrama y de la figura con la que se presenten.\n</string>
+    <string name="h3_Conceptos_1.2.4">\t1\t1.2.4 El Endecagrama\n</string>
+    <string name="p1_Conceptos_1.2.4">\t\t\tEl gran pentagrama o endecagrama es un la forma primitiva del pentagrama, como su nombre lo indica posee 11 líneas por lo cual era muy complejo de leer.\nHoy día lo que utilizamos es el nuevo concepto de gran pentagrama que es la forma habitual de escribir obras para piano la cual es usar de forma múltiple la clave de sol y la clave de fa, para denotar las notas altas y las bajas del piano en cada sección de la obra musical.\n</string>
+
+    <eat-comment>INTERVALOS!</eat-comment>
+
+    <string name="def_intervalos">
+        Para entender cualquier melodía o armonía musical, es esencial tener una sólida comprensión de los intervalos. En teoría musical, un intervalo es la distancia entre dos tonos, que puede medirse en semitonos o tonos.\n\n
+        En la música occidental, el intervalo más pequeño es el semitono, que es la distancia entre dos teclas adyacentes en un piano. El siguiente intervalo más pequeño es el paso entero o tono, que es la distancia entre las notas que están a dos teclas de distancia en el piano.\n\n
+        Las mediciones de intervalos constan de dos partes: cantidad y calidad. La cantidad de un intervalo viene determinada por su valor numérico, que se basa en el alfabeto musical (Do, Re, Mi, Fa, Sol, La, Si). Por ejemplo, el intervalo formado por las notas Do y Sol siempre será algún tipo de quinta, independientemente de la cualidad de Do o Sol (si son bemoles o sostenidos).\n\n
+        La calidad de un intervalo viene determinada por el número de semitonos que hay entre las dos notas. Existen cinco calidades básicas de intervalos: perfectos, mayores, menores, aumentados y disminuidos. Los intervalos perfectos (unísono, cuarta, quinta y octava) se consideran los más estables y consonantes, mientras que los intervalos mayores y menores (tercera, sexta y séptima) crean más tensión y disonancia.\n\n
+        En resumen, los intervalos son un concepto fundamental en la teoría musical y son esenciales para comprender la estructura y las relaciones entre las notas y los acordes en la música.
+
+    </string>
+
 
 </resources>
