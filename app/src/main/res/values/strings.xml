@@ -42,8 +42,6 @@
         en
         Home</string>
 
-
-
     <string name="login_sign_in">¿Todavía no tienes cuenta? Regístrate</string>
     <string name="login_button_loggin">INICIAR SESIÓN</string>
     <string name="ingresarBtn">Ingresar</string>

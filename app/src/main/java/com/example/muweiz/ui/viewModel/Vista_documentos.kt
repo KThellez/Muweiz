@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.commit
@@ -17,6 +19,7 @@ import com.example.muweiz.data.ContentItemDocumentos
 import com.example.muweiz.data.ContentType
 import com.example.muweiz.databinding.ActivityVistaDocumentosBinding
 import com.example.muweiz.ui.view.Teoria
+import com.example.muweiz.ui.viewModel.picasso.FirebaseImageLoader
 
 class vista_documentos : AppCompatActivity() {
     private lateinit var binding: ActivityVistaDocumentosBinding
@@ -58,6 +61,7 @@ private fun fillContentView(contentList: List<ContentItemDocumentos>?) {
                         ContentType.H3 -> H3(item.bold, item.italic, item.text, item.color)
                         ContentType.P1 -> p1(item.bold, item.italic, item.text, item.color)
                         ContentType.P2 -> p2(item.bold, item.italic, item.text, item.color)
+                        ContentType.imageViewFB -> imagen(item.imageName, item.imageCategory)
                     }
                 } else {
                     Log.d("VistaDocumentos", "El texto en ContentItemDocumentos está en blanco.")
@@ -161,10 +165,22 @@ private fun fillContentView(contentList: List<ContentItemDocumentos>?) {
         val container = binding.layoutContenedorInformacion
         container.addView(textView)
     }
-    private fun imagen(){
-        /*val imageView = ImageView(this)
-        imageView.setImageResource(R.drawable.mi_imagen)
-        val container = findViewById<LinearLayout>(R.id.container)
-        container.addView(imageView)*/
+
+    private fun imagen(imageName: String, category: String) {
+        val imageView = ImageView(this)
+
+        val firebaseImageLoader = FirebaseImageLoader()
+        Log.d("VistaDocumentos", "Cargando imagen: $imageName")
+        firebaseImageLoader.loadImage(imageName, imageView, category)
+
+        // Ajusta los parámetros del ImageView según tus necesidades
+        imageView.layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        val container = binding.layoutContenedorInformacion
+        // Agrega el ImageView al contenedor
+        container.addView(imageView)
+
     }
 }
