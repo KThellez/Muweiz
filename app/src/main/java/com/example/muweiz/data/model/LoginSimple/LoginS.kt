@@ -40,18 +40,6 @@ class LoginS : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.pbLoading.isVisible = false
-/*
-        signInRequest = BeginSignInRequest.builder()
-            .setGoogleIdTokenRequestOptions(
-                BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                    .setSupported(true)
-                    // El ID de cliente del servidor, no el ID de cliente de Android.
-                    .setServerClientId(getString(R.string.default_web_client_id))
-                    // Solo muestra las cuentas utilizadas previamente para iniciar sesión.
-                    .setFilterByAuthorizedAccounts(true)
-                    .build())
-            .build()*/
-
         firebaseAuth = Firebase.auth
         val btnIngresar = binding.btnLogin
         val btnRegistrarse = binding.tvForgotPassword

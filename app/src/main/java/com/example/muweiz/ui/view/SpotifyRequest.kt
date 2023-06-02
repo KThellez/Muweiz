@@ -36,6 +36,8 @@ class SpotifyRequest : AppCompatActivity(), AuthResultListener {
     private lateinit var spotifyAuthenticator: SpotifyAuthenticator
     private lateinit var token: String
 
+    //private val GOOGLE_REDIRECT_URI = "https://muweiz-533c5.firebaseapp.com/__/auth/handler"
+    private val GOOGLE_REDIRECT_URI = redirectUri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +46,8 @@ class SpotifyRequest : AppCompatActivity(), AuthResultListener {
 
         btnBuscar = binding.buscador
         songData = SongData(R.drawable.piano, "SRV", "Pride and Joy", "Eb Major", "130", "77")
-        server = ServidorLocal("192.168.0.9", 8080, this)
-        server.startServer()
+        //server = ServidorLocal("192.168.0.9", 7777, this)
+        //server.startServer()
 
         spotifyAuthenticator = SpotifyAuthenticator(this)
 
@@ -68,11 +70,11 @@ class SpotifyRequest : AppCompatActivity(), AuthResultListener {
                 })
 
                 funcionExterna()
-
             } else {
                 // Autenticación fallida
             }
         }
+
 
         supportFragmentManager.commit {
             replace<logoAndTittle>(R.id.frameLogoSpot)
@@ -82,10 +84,8 @@ class SpotifyRequest : AppCompatActivity(), AuthResultListener {
     }
 
 
-    override fun onAuthResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        spotifyAuthenticator.setAuthResultListener(this)
-        spotifyAuthenticator.handleAuthResponse(requestCode, resultCode, data)
-    }
+
+
 
     private fun performSearch(query: String) {
         println("Texto buscado: $query")
@@ -105,10 +105,30 @@ class SpotifyRequest : AppCompatActivity(), AuthResultListener {
         }, query)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        Log.d("PAPAnata", "ENTRO AL ACTIVITY RESULT: $requestCode , $resultCode, $data")
-        spotifyAuthenticator.onActivityResult(requestCode, resultCode, data)
+    override fun onAuthResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        spotifyAuthenticator.setAuthResultListener(this)
+        spotifyAuthenticator.handleAuthResponse(requestCode, resultCode, data)
+
+        // Verificar si la autenticación con Spotify fue exitosa
+        if (resultCode == RESULT_OK) {
+            Log.d("SpotifyRequest", "Autenticación exitosa con Spotify")
+
+            // Verificar si la autenticación con Google también fue exitosa
+            val uri = data?.data
+            if (uri != null && uri.toString() == GOOGLE_REDIRECT_URI) {
+                // Autenticación exitosa con el URI de redireccionamiento de Google
+                Log.d("SpotifyRequest", "Autenticación exitosa con el URI de redireccionamiento de Google")
+                // Realizar acciones adicionales después de la autenticación exitosa con Google
+                // ...
+            } else {
+                // Autenticación fallida con el URI de redireccionamiento de Google
+                Log.d("SpotifyRequest", "Autenticación fallida con el URI de redireccionamiento de Google")
+                // Mostrar mensaje de error o realizar acciones adicionales según sea necesario
+                // ...
+            }
+        } else {
+            Log.d("SpotifyRequest", "Autenticación fallida con el URI de redireccionamiento de Google")
+        }
     }
 
     override fun onBackPressed() {
@@ -116,17 +136,27 @@ class SpotifyRequest : AppCompatActivity(), AuthResultListener {
         finish()
     }
 
-    override fun onDestroy() {
+   /* override fun onDestroy() {
         super.onDestroy()
         Toast.makeText(this, "Server Finished", Toast.LENGTH_SHORT).show()
         server.stopServer()
+    }*/
+    override fun onPause() {
+        super.onPause()
+        // Limpia las credenciales almacenadas aquí
+        val sharedPref = this.getSharedPreferences("SpotifyData", Context.MODE_PRIVATE)
+        Log.d("MyApp", "onPause() called")
+        // Limpia las credenciales almacenadas aquí
+        val sharedPrefEditor = sharedPref.edit()
+        sharedPrefEditor.remove("Token")
+        sharedPrefEditor.apply()
+        Log.d("MyApp", "Credenciales eliminadas")
     }
-
     private fun funcionExterna() {
         SpotifyAppRemote.connect(
             applicationContext,
             ConnectionParams.Builder(CLIENT_ID)
-                .setRedirectUri(Uri.parse(redirectUri).toString())
+                .setRedirectUri(GOOGLE_REDIRECT_URI)
                 .showAuthView(true)
                 .build(),
             object : Connector.ConnectionListener {
@@ -155,5 +185,16 @@ class SpotifyRequest : AppCompatActivity(), AuthResultListener {
     private fun traerToken(): String {
         val sharedPref = this.getSharedPreferences("SpotifyData", Context.MODE_PRIVATE)
         return sharedPref.getString("Token", "") ?: ""
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        spotifyAuthenticator.onActivityResult(requestCode, resultCode, data)
+
+        spotifyAuthenticator.setAuthResultListener(this)
+
+       // spotifyAuthenticator.handleAuthResponse(requestCode, resultCode, data)
+
     }
 }

@@ -54,7 +54,11 @@ class SpotifyAuthenticator(private val context: Context) {
         setAuthResultListener(SpotifyRequest())
 
         val authIntent = authService.getAuthorizationRequestIntent(authRequest)
+        //val authIntent = authService.createCustomTabsIntentBuilder(authRequest.toUri()).build()
+        //authIntent.launchUrl(context, authRequest.toUri())
         (context as Activity).startActivityForResult(authIntent, AUTHENTICATION_REQUEST_CODE)
+
+
     }
 
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
